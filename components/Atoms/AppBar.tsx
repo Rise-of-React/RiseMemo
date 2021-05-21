@@ -9,13 +9,17 @@ const useStyle = makeStyles(theme => ({
 }))
 
 interface AppBarProps {
-  title : string;
+  title? : string;
+}
+
+const defaultAppBar = {
+  title: 'Rise of Memo'
 }
 
 export const AppBar = (props: AppBarProps) => {
   const {title} = props;
   const classes = useStyle();
   return <div className={classes.root}>
-  <Typography variant={'h2'}>Rise of Memo</Typography>
+  <Typography variant={'h2'}>{title ?? defaultAppBar.title}</Typography>
   </div>
 }
