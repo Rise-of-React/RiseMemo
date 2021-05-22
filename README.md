@@ -13,3 +13,9 @@ npm run dev
 # or
 yarn dev
 ```
+
+## Library
+
+-React MaterialUI
+-React DnD
+-immutability-helper - for update state easily

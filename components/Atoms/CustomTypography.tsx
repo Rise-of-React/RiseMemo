@@ -8,7 +8,7 @@ interface CustomTypoGraphyProps {
 export const CustomTypoGraphy = ({ title }: CustomTypoGraphyProps) => {
   return (
     <div>
-      <Typography variant={'h6'}>{title}</Typography>
+      <Typography variant={'h4'}>{title}</Typography>
     </div>
   );
 };
