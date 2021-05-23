@@ -1,5 +1,5 @@
 import { Box, Divider, Grid, List, Paper } from '@material-ui/core';
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import { CustomTypoGraphy } from './Atoms/CustomTypography';
 import { MemoData, MemoItem } from './MemoItem';
 import update from 'immutability-helper';
@@ -11,6 +11,10 @@ export interface DragBoardProps {
   height?: number;
   title: string;
 }
+
+const style: CSSProperties = {
+  position: 'relative',
+};
 
 interface DragItem {
   left: number;
@@ -40,7 +44,7 @@ export const DragBoard = <T extends unknown>({ data, height, title }: DragBoardP
 
   const [, drop] = useDrop(
     () => ({
-      accept: 'ListItem',
+      accept: 'Box',
       drop(item: DragItem, monitor) {
         const delta = monitor.getDifferenceFromInitialOffset() as XYCoord;
         const left = Math.round(item.left + delta.x);
@@ -56,21 +60,18 @@ export const DragBoard = <T extends unknown>({ data, height, title }: DragBoardP
     <Paper style={{ padding: 15 }}>
       <CustomTypoGraphy title={title} />
       <Paper elevation={3}>
-        <Grid container alignItems={'stretch'} direction={'column'}>
-          <Box width={1}>
-            <List style={{ height: height }} ref={drop}>
-              {Object.keys(data).map((key) => {
-                console.log(memoList[key]);
-                const { left, top, content } = memoList[key];
-                return (
-                  <DragListItem key={key} id={key} left={left} top={top}>
-                    {content}
-                  </DragListItem>
-                );
-              })}
-            </List>
-          </Box>
-        </Grid>
+        <Box width={1}>
+          <div style={{ height: height, ...style }} ref={drop}>
+            {Object.keys(data).map((key) => {
+              const { left, top, content } = memoList[key];
+              return (
+                <DragListItem key={key} id={key} left={left} top={top}>
+                  {content}
+                </DragListItem>
+              );
+            })}
+          </div>
+        </Box>
       </Paper>
     </Paper>
   );
