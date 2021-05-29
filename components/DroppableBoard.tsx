@@ -8,18 +8,48 @@ interface DroppableBoardProps {}
 type BoardObject = {
   id: string;
   name: string;
+  data: MemoData[];
+};
+
+export type MemoData = {
+  id: string;
+  content: string;
 };
 
 const boardList: BoardObject[] = [
-  { id: '1', name: 'To do' },
-  { id: '1', name: 'Process' },
-  { id: '1', name: 'Complete' },
+  {
+    id: '1',
+    name: 'To do',
+    data: [
+      { id: '001', content: 'tes1t' },
+      { id: '002', content: 'test2' },
+      { id: '003', content: 'tes3t' },
+    ],
+  },
+  {
+    id: '2',
+    name: 'Process',
+    data: [
+      { id: '004', content: 'test' },
+      { id: '005', content: 't2' },
+      { id: '006', content: 'te3t' },
+    ],
+  },
+  {
+    id: '3',
+    name: 'Complete',
+    data: [
+      { id: '007', content: 'tet' },
+      { id: '008', content: 'tes' },
+      { id: '009', content: 'ts3t' },
+    ],
+  },
 ];
 
 const tempData = [
   { content: 'test', top: 20, left: 80 },
   { content: 'test2', top: 40, left: 80 },
-  { content: 'tes3t', top: 60, left: 80 },
+  { content: 'test3', top: 60, left: 80 },
 ];
 
 export const DroppableBoard: FC<DroppableBoardProps> = ({}) => {
@@ -32,10 +62,10 @@ export const DroppableBoard: FC<DroppableBoardProps> = ({}) => {
       {boardList.map((board) => {
         return (
           <Droppable key={board.id} droppableId={board.id}>
-            {(provided, snapshop) => {
+            {(provided, snapshot) => {
               return (
                 <Grid item xs={4}>
-                  <DraggableList provided={provided} snapshop={snapshop} data={tempData} />
+                  <DraggableList provided={provided} snapshot={snapshot} data={board.data} />
                 </Grid>
               );
             }}

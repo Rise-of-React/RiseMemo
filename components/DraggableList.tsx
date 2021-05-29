@@ -2,26 +2,31 @@ import { List } from '@material-ui/core';
 import React, { FC } from 'react';
 import { Draggable, DroppableProvided, DroppableStateSnapshot } from 'react-beautiful-dnd';
 import { DraggableListItem } from './DraggableListItem';
-import { MemoData } from './MemoItem';
+import { MemoData } from './DroppableBoard';
 
 interface DraggableListProps {
   provided: DroppableProvided;
-  snapshop: DroppableStateSnapshot;
+  snapshot: DroppableStateSnapshot;
   data: MemoData[];
 }
 
-export const DraggableList: FC<DraggableListProps> = ({ data, provided, snapshop }) => {
+const getListStyle = (isDraggingOver) => ({
+  background: isDraggingOver ? 'lightblue' : 'lightgrey',
+});
+
+export const DraggableList: FC<DraggableListProps> = ({ data, provided, snapshot }) => {
   return (
-    <List {...provided.droppableProps} ref={provided.innerRef}>
+    <List {...provided.droppableProps} ref={provided.innerRef} style={getListStyle(snapshot)}>
       {data.map((el, index) => {
         return (
-          <Draggable key={index} draggableId={index.toString()} index={index}>
+          <Draggable key={el.id} draggableId={el.id} index={index}>
             {(provided, snapshop) => {
-              return <DraggableListItem provided={provided} snapshop={snapshop} item={el} key={index} />;
+              return <DraggableListItem provided={provided} snapshop={snapshop} item={el} key={el.id} />;
             }}
           </Draggable>
         );
       })}
+      {provided.placeholder}
     </List>
   );
 };
