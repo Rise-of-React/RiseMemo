@@ -20,7 +20,7 @@ export const Board = <T extends unknown>({ data, height, title }: BoardProps) =>
       <Paper elevation={3}>
         <Grid container alignItems={'stretch'} direction={'column'}>
           <Box width={1}>
-            <div style={{ height: height }}>
+            <List style={{ height: height }}>
               {data.map((memo, index) => {
                 return (
                   <div key={index}>
@@ -29,7 +29,7 @@ export const Board = <T extends unknown>({ data, height, title }: BoardProps) =>
                   </div>
                 );
               })}
-            </div>
+            </List>
           </Box>
         </Grid>
       </Paper>

@@ -6,11 +6,9 @@ interface MemoItemProps {
 }
 
 export type MemoData = {
-  [key: string]: {
-    top: number;
-    left: number;
-    content: string;
-  };
+  top: number;
+  left: number;
+  content: string;
 };
 
 export const MemoItem = (props: MemoItemProps) => {
