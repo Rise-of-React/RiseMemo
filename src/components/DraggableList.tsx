@@ -1,8 +1,8 @@
 import { List } from '@material-ui/core';
 import React, { FC } from 'react';
 import { Draggable, DroppableProvided, DroppableStateSnapshot } from 'react-beautiful-dnd';
+import { MemoData } from '../types/memo/memo';
 import { DraggableListItem } from './DraggableListItem';
-import { MemoData } from './DroppableBoard';
 
 interface DraggableListProps {
   provided: DroppableProvided;
@@ -10,8 +10,8 @@ interface DraggableListProps {
   data: MemoData[];
 }
 
-const getListStyle = (isDraggingOver) => ({
-  background: isDraggingOver ? 'lightblue' : 'lightgrey',
+const getListStyle = (snapshop: DroppableStateSnapshot) => ({
+  background: snapshop.isDraggingOver ? 'lightblue' : 'lightgrey',
 });
 
 export const DraggableList: FC<DraggableListProps> = ({ data, provided, snapshot }) => {

@@ -1,14 +1,7 @@
 import { Grid, makeStyles } from '@material-ui/core';
 import React from 'react';
-import { AppBar } from '../components/Atoms/AppBar';
-import { Board } from '../components/Board';
-import { DroppableBoard } from '../components/DroppableBoard';
-
-const tempData = [
-  { content: 'test', top: 20, left: 80 },
-  { content: 'test2', top: 40, left: 80 },
-  { content: 'tes3t', top: 60, left: 80 },
-];
+import { AppBar } from './components/Atoms/AppBar';
+import { DroppableBoard } from './components/DroppableBoard';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Home() {
+export default function App() {
   const classes = useStyles();
   return (
     <>

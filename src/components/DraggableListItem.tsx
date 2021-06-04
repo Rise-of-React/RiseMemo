@@ -1,7 +1,7 @@
 import { ListItem } from '@material-ui/core';
 import React, { FC } from 'react';
 import { DraggableProvided, DraggableStateSnapshot } from 'react-beautiful-dnd';
-import { MemoData } from './DroppableBoard';
+import { MemoData } from '../types/memo/memo';
 
 interface DraggableListItemProps {
   item: MemoData;
