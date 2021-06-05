@@ -24,7 +24,7 @@ export const Default = Template.bind({});
 //   subTitle: 'study virtual DOM',
 //   style: {
 //     width: '392',
-//     heigth: '112',
+//     height: '112',
 //     backgroundColor: '#CE97E8',
 //   },
 // };

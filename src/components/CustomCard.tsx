@@ -1,27 +1,22 @@
 import { Card, CardContent, CardHeader, Grid, IconButton, makeStyles, Theme, Typography } from '@material-ui/core';
 import React from 'react';
 import CancelIcon from '@material-ui/icons/Cancel';
+import { CardStyleProps } from '../types/card/card';
 export interface CustomCardProps {
   title: string;
   subTitle: string;
   style?: CardStyleProps;
 }
 
-type CardStyleProps = {
-  backgroundColor?: string;
-  width?: string;
-  heigth?: string;
-};
-
 const useStyles = makeStyles<Theme, CardStyleProps>((theme: Theme) => ({
   card: (props) => ({
     backgroundColor: props.backgroundColor,
-    width: 392,
-    heigth: 112,
+    width: Number(props.width),
+    height: Number(props.height),
   }),
-  cardContent: {
+  cardContent: (props) => ({
     paddingLeft: 15,
-  },
+  }),
   text: {
     color: '#FFFFFF',
   },
@@ -36,7 +31,7 @@ export const CustomCard = (props: CustomCardProps) => {
       <CardContent>
         <Grid container direction={'column'}>
           <Grid item>
-            <IconButton size="small">
+            <IconButton size="small" style={{ color: '#FFFFFF' }}>
               <CancelIcon />
             </IconButton>
           </Grid>
@@ -58,8 +53,8 @@ CustomCard.defaultProps = {
   title: 'test',
   subTitle: 'subtest',
   style: {
-    width: 392,
-    heigth: 112,
+    width: '392',
+    height: '112',
     backgroundColor: '#CE97E8',
   },
 };

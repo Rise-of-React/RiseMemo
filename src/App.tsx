@@ -19,7 +19,7 @@ export default function App() {
     <>
       <AppBar />
       <Grid container spacing={2} className={classes.root}>
-        <DroppableBoard></DroppableBoard>
+        <DroppableBoard />
       </Grid>
     </>
   );
