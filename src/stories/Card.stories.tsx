@@ -4,7 +4,7 @@ import { CustomCardProps, CustomCard } from '../components/CustomCard';
 import { Paper } from '@material-ui/core';
 
 export default {
-  title: 'Card/DefaultCard',
+  title: 'Card/Card',
   component: CustomCard,
   decorators: [
     (Story) => (

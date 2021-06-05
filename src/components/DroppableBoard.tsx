@@ -10,7 +10,7 @@ interface DroppableBoardProps {}
 const boardData: Board = {
   todo: {
     id: '1',
-    name: 'To do',
+    name: 'Todo',
     boardStyle: {
       width: '452',
       height: '865',
@@ -91,9 +91,11 @@ export const DroppableBoard: FC<DroppableBoardProps> = ({}) => {
           <Droppable key={title} droppableId={title}>
             {(provided, snapshot) => {
               return (
-                <Grid item xs={4}>
+                <Grid item container xs={4} justify="center">
                   <CustomBoard
-                    style={listData.boardStyle}
+                    title={listData.name}
+                    boardStyle={listData.boardStyle}
+                    cardStyle={listData.cardStyle}
                     children={
                       <DraggableList
                         provided={provided}

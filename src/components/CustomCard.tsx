@@ -13,6 +13,7 @@ const useStyles = makeStyles<Theme, CardStyleProps>((theme: Theme) => ({
     backgroundColor: props.backgroundColor,
     width: Number(props.width),
     height: Number(props.height),
+    borderRadius: 20,
   }),
   cardContent: (props) => ({
     paddingLeft: 15,

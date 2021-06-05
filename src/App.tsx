@@ -8,9 +8,6 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(2),
   },
-  board: {
-    height: 800,
-  },
 }));
 
 export default function App() {
@@ -18,7 +15,7 @@ export default function App() {
   return (
     <>
       <AppBar />
-      <Grid container spacing={2} className={classes.root}>
+      <Grid container className={classes.root}>
         <DroppableBoard />
       </Grid>
     </>
