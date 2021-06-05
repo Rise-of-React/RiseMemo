@@ -11,28 +11,20 @@ const boardData: Board = {
     id: '1',
     name: 'To do',
     data: [
-      { id: '001', content: 'tes1t' },
-      { id: '002', content: 'test2' },
-      { id: '003', content: 'tes3t' },
+      { id: '001', title: 'Study React', subTitle: 'VirtualDom', content: 'test' },
+      { id: '002', title: 'Move To Seoul', subTitle: 'buy Bus Ticket', content: 'test2' },
+      { id: '003', title: 'Buy Food', subTitle: 'Buy Some Eggs', content: 'test3' },
     ],
   },
   progress: {
     id: '2',
     name: 'Process',
-    data: [
-      { id: '004', content: 'test' },
-      { id: '005', content: 't2' },
-      { id: '006', content: 'te3t' },
-    ],
+    data: [{ id: '004', title: 'Take a Shower', subTitle: '', content: 'test3' }],
   },
   complete: {
     id: '3',
     name: 'Complete',
-    data: [
-      { id: '007', content: 'tet' },
-      { id: '008', content: 'tes' },
-      { id: '009', content: 'ts3t' },
-    ],
+    data: [],
   },
 };
 

@@ -1,5 +1,6 @@
 import { makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
+import logo from '../../images/icon.jpg';
 
 const useStyle = makeStyles((theme) => ({
   root: {
@@ -23,7 +24,7 @@ export const AppBar = (props: AppBarProps) => {
 
   return (
     <div className={classes.root}>
-      <img src="/icon.jpg" width={75} height={75} />
+      <img src={logo} width={75} height={75} />
       <Typography variant={'h2'}>{title ?? defaultAppBar.title}</Typography>
     </div>
   );
