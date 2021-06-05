@@ -1,19 +1,9 @@
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  Fab,
-  Grid,
-  IconButton,
-  makeStyles,
-  Paper,
-  Theme,
-  Typography,
-} from '@material-ui/core';
+import { Fab, Grid, makeStyles, Paper, Theme, Typography } from '@material-ui/core';
 import React from 'react';
 import { BoardStyleProps } from '../types/board/board';
 import { CardStyleProps } from '../types/card/card';
 import AddOutlinedIcon from '@material-ui/icons/AddOutlined';
+import { AddDialog } from './AddDialog';
 export interface CustomBoardProps {
   title?: string;
   boardStyle?: BoardStyleProps;
@@ -45,6 +35,12 @@ const useStyles = makeStyles<Theme, CustomBoardProps>((theme: Theme) => ({
 export const CustomBoard = (props: CustomBoardProps) => {
   const classes = useStyles(props ?? {});
 
+  const [open, setOpen] = React.useState<boolean>(false);
+
+  const handleClose = React.useCallback(() => {
+    setOpen(false);
+  }, [setOpen]);
+
   return (
     <Paper className={classes.board} variant="outlined">
       <Grid container direction={'column'} justify="center" alignItems="center">
@@ -53,11 +49,18 @@ export const CustomBoard = (props: CustomBoardProps) => {
         </Grid>
         <Grid item>{props.children}</Grid>
         <Grid item alignItems="flex-end">
-          <Fab aria-label="add" className={classes.floatingButton}>
+          <Fab
+            aria-label="add"
+            className={classes.floatingButton}
+            onClick={() => {
+              setOpen(true);
+            }}
+          >
             <AddOutlinedIcon />
           </Fab>
         </Grid>
       </Grid>
+      <AddDialog open={open} onClose={handleClose} subTitle={props.title} />
     </Paper>
   );
 };
