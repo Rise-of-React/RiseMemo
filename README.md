@@ -17,3 +17,8 @@ yarn dev
 -React MaterialUI
 -React DnD
 -immutability-helper - for update state easily
+
+
+## Design
+
+https://www.figma.com/file/UseUiYSjf0aLjAQJIpoOhw/RiseOfMemo?node-id=0%3A1
