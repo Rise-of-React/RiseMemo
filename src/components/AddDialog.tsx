@@ -12,6 +12,7 @@ import {
 import AddOutlinedIcon from '@material-ui/icons/AddOutlined';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
 import React from 'react';
+import { MemoData } from '../types/memo/memo';
 
 const useStyles = makeStyles((theme) => ({
   dialog: {
@@ -49,16 +50,45 @@ export interface AddDialogProps {
   open: boolean;
   onClose: () => void;
   subTitle?: string;
+  onAddMemo: (title: string, memo: MemoData) => void;
 }
 
 export const AddDialog = (props: AddDialogProps) => {
   const classes = useStyles();
-  const { open, onClose, subTitle } = props;
+  const { open, onClose, subTitle, onAddMemo } = props;
+  const [addState, setAddState] = React.useState<MemoData>({ title: '', subTitle: '' });
+
+  // React.useEffect(()=>{
+  //   setAddState(origin ?? {
+  //     title: '',
+  //     subTitle: '',
+  //   });
+  // },[origin])
+
+  const onChangeValue = React.useCallback(
+    (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+      const value = event.target.value;
+      const id = event.target.id;
+
+      const newMemo: MemoData = {
+        ...addState,
+        [id]: value,
+      };
+      setAddState(newMemo);
+    },
+    [addState]
+  );
+
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    onAddMemo(subTitle ?? 'Todo', addState);
+    onClose && onClose();
+  };
 
   return (
     <Dialog open={open} onClose={onClose} maxWidth={'lg'}>
       <Paper className={classes.dialog}>
-        <form>
+        <form onSubmit={onSubmit}>
           <DialogTitle className={classes.title}>
             <Typography variant="h5">Add Card</Typography>
             <Typography variant="subtitle2">{subTitle}</Typography>
@@ -72,8 +102,12 @@ export const AddDialog = (props: AddDialogProps) => {
                 <TextField
                   id="title"
                   variant="outlined"
+                  value={addState?.title}
                   fullWidth
                   className={classes.textField}
+                  onChange={(e) => {
+                    onChangeValue(e);
+                  }}
                   InputProps={{
                     className: classes.input,
                   }}
@@ -84,10 +118,14 @@ export const AddDialog = (props: AddDialogProps) => {
                   Subtitle
                 </Typography>
                 <TextField
-                  id="subtitle"
+                  id="subTitle"
                   variant="outlined"
+                  value={addState?.subTitle}
                   fullWidth
                   className={classes.textField}
+                  onChange={(e) => {
+                    onChangeValue(e);
+                  }}
                   InputProps={{
                     className: classes.input,
                   }}
@@ -99,6 +137,7 @@ export const AddDialog = (props: AddDialogProps) => {
                     variant="contained"
                     startIcon={<AddOutlinedIcon />}
                     style={{ backgroundColor: '#ffffff', color: '#9B51E0' }}
+                    type="submit"
                   >
                     Add
                   </Button>
@@ -108,6 +147,7 @@ export const AddDialog = (props: AddDialogProps) => {
                     variant="contained"
                     startIcon={<CloseOutlinedIcon />}
                     style={{ backgroundColor: '#ffffff', color: '#9B51E0' }}
+                    onClick={onClose}
                   >
                     Close
                   </Button>

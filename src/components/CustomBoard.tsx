@@ -4,11 +4,13 @@ import { BoardStyleProps } from '../types/board/board';
 import { CardStyleProps } from '../types/card/card';
 import AddOutlinedIcon from '@material-ui/icons/AddOutlined';
 import { AddDialog } from './AddDialog';
+import { MemoData } from '../types/memo/memo';
 export interface CustomBoardProps {
   title?: string;
   boardStyle?: BoardStyleProps;
   cardStyle?: CardStyleProps;
   children?: React.ReactNode;
+  onAddMemo: (title: string, memo: MemoData) => void;
 }
 
 const useStyles = makeStyles<Theme, CustomBoardProps>((theme: Theme) => ({
@@ -60,7 +62,7 @@ export const CustomBoard = (props: CustomBoardProps) => {
           </Fab>
         </Grid>
       </Grid>
-      <AddDialog open={open} onClose={handleClose} subTitle={props.title} />
+      <AddDialog open={open} onClose={handleClose} subTitle={props.title} onAddMemo={props.onAddMemo} />
     </Paper>
   );
 };

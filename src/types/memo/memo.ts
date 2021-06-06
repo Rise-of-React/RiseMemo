@@ -1,6 +1,6 @@
 export type MemoData = {
-  id: string;
+  id?: string;
   title: string;
   subTitle: string;
-  content: string;
+  content?: string;
 };

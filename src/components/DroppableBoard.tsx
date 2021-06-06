@@ -2,6 +2,7 @@ import { Grid } from '@material-ui/core';
 import React, { FC } from 'react';
 import { DragDropContext, Droppable, DropResult, ResponderProvided } from 'react-beautiful-dnd';
 import { Board } from '../types/board/board';
+import { MemoData } from '../types/memo/memo';
 import { CustomBoard } from './CustomBoard';
 import { DraggableList } from './DraggableList';
 
@@ -25,7 +26,7 @@ const boardData: Board = {
   },
   progress: {
     id: '2',
-    name: 'Process',
+    name: 'Progress',
     boardStyle: {
       width: '452',
       height: '865',
@@ -84,6 +85,21 @@ export const DroppableBoard: FC<DroppableBoardProps> = ({}) => {
     }
   };
 
+  const onAddMemo = React.useCallback(
+    (title: string, memo: MemoData) => {
+      console.log(board[title.toLowerCase()]);
+      console.log(board['progress']);
+      setBoard({
+        ...board,
+        [title.toLowerCase()]: {
+          ...board[title.toLowerCase()],
+          data: [...boardData[title.toLowerCase()].data, memo],
+        },
+      });
+    },
+    [board]
+  );
+
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       {Object.entries(board).map(([title, listData]) => {
@@ -96,6 +112,9 @@ export const DroppableBoard: FC<DroppableBoardProps> = ({}) => {
                     title={listData.name}
                     boardStyle={listData.boardStyle}
                     cardStyle={listData.cardStyle}
+                    onAddMemo={(title, memo) => {
+                      onAddMemo(title, memo);
+                    }}
                     children={
                       <DraggableList
                         provided={provided}
