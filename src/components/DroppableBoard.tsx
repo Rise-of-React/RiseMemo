@@ -6,50 +6,16 @@ import { MemoData } from '../types/memo/memo';
 import { CustomBoard } from './CustomBoard';
 import { DraggableList } from './DraggableList';
 import { v4 as uuidv4 } from 'uuid';
-interface DroppableBoardProps {}
+interface DroppableBoardProps {
+  board: Board;
+}
 
-const boardData: Board = {
-  todo: {
-    id: '1',
-    name: 'Todo',
-    boardStyle: {
-      width: '452',
-      height: '865',
-      backgroundColor: '#E1C3F0',
-    },
-    cardStyle: { width: '392', height: '112', backgroundColor: '#CE97E8' },
-    data: [
-      { id: '001', title: 'Study React', subTitle: 'VirtualDom', content: 'test' },
-      { id: '002', title: 'Move To Seoul', subTitle: 'buy Bus Ticket', content: 'test2' },
-      { id: '003', title: 'Buy Food', subTitle: 'Buy Some Eggs', content: 'test3' },
-    ],
-  },
-  progress: {
-    id: '2',
-    name: 'Progress',
-    boardStyle: {
-      width: '452',
-      height: '865',
-      backgroundColor: '#B671DA',
-    },
-    cardStyle: { width: '392', height: '112', backgroundColor: '#A024DA' },
-    data: [{ id: '004', title: 'Take a Shower', subTitle: '', content: 'test3' }],
-  },
-  complete: {
-    id: '3',
-    name: 'Complete',
-    boardStyle: {
-      width: '452',
-      height: '865',
-      backgroundColor: '#613678',
-    },
-    cardStyle: { width: '392', height: '112', backgroundColor: '#7E4F94' },
-    data: [],
-  },
-};
 
-export const DroppableBoard: FC<DroppableBoardProps> = ({}) => {
-  const [board, setBoard] = React.useState<Board>(boardData);
+
+export const DroppableBoard: FC<DroppableBoardProps> = (props) => {
+  const [board, setBoard] = React.useState<Board>(props.board);
+
+
 
   const onDragEnd = (result: DropResult, provided: ResponderProvided) => {
     const { source, destination } = result;
@@ -88,13 +54,13 @@ export const DroppableBoard: FC<DroppableBoardProps> = ({}) => {
   const onAddMemo = React.useCallback(
     (title: string, memo: MemoData) => {
       const memoData = {...memo,id:uuidv4()};
-      const newArr = boardData[title.toLowerCase()].data;
-      newArr.push(memoData);
+      console.log(board[title.toLowerCase()].data);
+      const data = board[title.toLowerCase()].data.concat(memoData);
       setBoard({
         ...board,
         [title.toLowerCase()]: {
           ...board[title.toLowerCase()],
-          data: newArr,
+          data: data,
         },
       });
     },

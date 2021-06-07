@@ -13,7 +13,7 @@ import AddOutlinedIcon from '@material-ui/icons/AddOutlined';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
 import React from 'react';
 import { MemoData } from '../types/memo/memo';
-import { v4 as uuidv4 } from 'uuid';
+
 
 const useStyles = makeStyles((theme) => ({
   dialog: {

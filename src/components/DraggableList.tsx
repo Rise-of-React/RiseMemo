@@ -22,7 +22,6 @@ export const DraggableList: FC<DraggableListProps> = ({ data, provided, snapshot
   return (
     <List {...provided.droppableProps} ref={provided.innerRef} style={getListStyle(snapshot, boardStyle)}>
       {data.map((el, index) => {
-        console.log(el.id);
         return (
           <Draggable key={el.id} draggableId={el.id ?? '1'} index={index}>
             {(provided, snapshop) => {
