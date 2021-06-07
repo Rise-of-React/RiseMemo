@@ -50,7 +50,7 @@ export const CustomBoard = (props: CustomBoardProps) => {
           <Typography variant="h4">{props.title}</Typography>
         </Grid>
         <Grid item>{props.children}</Grid>
-        <Grid item alignItems="flex-end">
+        <Grid item>
           <Fab
             aria-label="add"
             className={classes.floatingButton}

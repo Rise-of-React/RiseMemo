@@ -13,6 +13,7 @@ import AddOutlinedIcon from '@material-ui/icons/AddOutlined';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
 import React from 'react';
 import { MemoData } from '../types/memo/memo';
+import { v4 as uuidv4 } from 'uuid';
 
 const useStyles = makeStyles((theme) => ({
   dialog: {
@@ -68,11 +69,11 @@ export const AddDialog = (props: AddDialogProps) => {
   const onChangeValue = React.useCallback(
     (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
       const value = event.target.value;
-      const id = event.target.id;
+      const key = event.target.id;
 
       const newMemo: MemoData = {
         ...addState,
-        [id]: value,
+        [key]: value,
       };
       setAddState(newMemo);
     },

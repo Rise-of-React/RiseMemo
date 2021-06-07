@@ -5,7 +5,7 @@ import { Board } from '../types/board/board';
 import { MemoData } from '../types/memo/memo';
 import { CustomBoard } from './CustomBoard';
 import { DraggableList } from './DraggableList';
-
+import { v4 as uuidv4 } from 'uuid';
 interface DroppableBoardProps {}
 
 const boardData: Board = {
@@ -87,13 +87,14 @@ export const DroppableBoard: FC<DroppableBoardProps> = ({}) => {
 
   const onAddMemo = React.useCallback(
     (title: string, memo: MemoData) => {
-      console.log(board[title.toLowerCase()]);
-      console.log(board['progress']);
+      const memoData = {...memo,id:uuidv4()};
+      const newArr = boardData[title.toLowerCase()].data;
+      newArr.push(memoData);
       setBoard({
         ...board,
         [title.toLowerCase()]: {
           ...board[title.toLowerCase()],
-          data: [...boardData[title.toLowerCase()].data, memo],
+          data: newArr,
         },
       });
     },
