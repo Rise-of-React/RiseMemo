@@ -1,15 +1,11 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { CustomDrawer, CustomDrawerProps } from '../components/Drawer';
+import { CustomDrawer, CustomDrawerProps } from '../components/CustomDrawer';
 
 export default {
   title: 'Drawer/Drawer',
   component: CustomDrawer,
-  decorators: [
-    (Story) => (
-        <Story />
-    ),
-  ],
+  decorators: [(Story) => <Story />],
 } as Meta;
 
 const Template: Story<CustomDrawerProps> = (args) => <CustomDrawer {...args} />;

@@ -14,7 +14,14 @@ export interface DraggableListItemProps {
 
 export const DraggableListItem: FC<DraggableListItemProps> = ({ item, cardStyle, provided, snapshop }) => {
   return (
-    <ListItem ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+    <ListItem
+      ref={provided.innerRef}
+      {...provided.draggableProps}
+      {...provided.dragHandleProps}
+      style={{
+        ...provided.draggableProps.style,
+      }}
+    >
       <CustomCard title={item.title} subTitle={item.subTitle} style={cardStyle} />
     </ListItem>
   );

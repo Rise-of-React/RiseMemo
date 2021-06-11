@@ -45,12 +45,12 @@ export const CustomBoard = (props: CustomBoardProps) => {
 
   return (
     <Paper className={classes.board} variant="outlined">
-      <Grid container direction={'column'} justify="center" alignItems="center">
+      <Grid container direction={'column'}>
         <Grid item className={classes.title} container alignItems="center" justify="center">
           <Typography variant="h4">{props.title}</Typography>
         </Grid>
         <Grid item>{props.children}</Grid>
-        <Grid item>
+        <Grid item container justify="center">
           <Fab
             aria-label="add"
             className={classes.floatingButton}

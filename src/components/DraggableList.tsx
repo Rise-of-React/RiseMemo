@@ -15,7 +15,7 @@ interface DraggableListProps {
 }
 
 const getListStyle = (snapshop: DroppableStateSnapshot, boardStyle: BoardStyleProps) => ({
-  // background: snapshop.isDraggingOver ? '#613678' : 'lightgrey',
+  // background: snapshop.isDraggingOver ? 'lightblue' : 'lightgrey',
 });
 
 export const DraggableList: FC<DraggableListProps> = ({ data, provided, snapshot, cardStyle, boardStyle }) => {
