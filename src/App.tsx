@@ -1,6 +1,6 @@
 import { Grid, makeStyles } from '@material-ui/core';
 import React from 'react';
-import { AppBar } from './components/Atoms/AppBar';
+import { AppBar } from './components/Molecules/AppBar';
 import { DroppableBoard } from './components/DroppableBoard';
 
 const useStyles = makeStyles((theme) => ({
@@ -54,7 +54,7 @@ export default function App() {
     <>
       <AppBar />
       <Grid container className={classes.root}>
-        <DroppableBoard board={data}/>
+        <DroppableBoard board={data} />
       </Grid>
     </>
   );
