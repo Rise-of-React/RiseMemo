@@ -9,7 +9,10 @@ export interface CustomChipProps {
 
 const CustomChipElement = withStyles((theme: Theme) => ({
   root: {
-    backgroundColor: theme.palette.grey[100],
+    backgroundColor: theme.palette.primary.main,
+    padding: 15,
+    margin: 8,
+    color: theme.palette.text.primary,
   },
 }))(Chip) as typeof Chip;
 
