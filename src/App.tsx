@@ -1,11 +1,12 @@
 import { Grid, makeStyles, ThemeProvider } from '@material-ui/core';
 import React from 'react';
-import { AppBar } from './components/Molecules/AppBar';
 import { DroppableBoard } from './components/DroppableBoard';
 import { theme } from './types/theme';
 import { tempData } from './types/board/board';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { DroppableList } from './components/DroppableList';
+import { Header } from './components/Organisms/Header';
+import { Template } from './components/template/template';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,16 +23,19 @@ export default function App() {
         <BrowserRouter>
           <Switch>
             <Route exact path="/">
-              <AppBar />
-              <DroppableBoard board={tempData} />
+              <Template>
+                <DroppableBoard board={tempData} />
+              </Template>
             </Route>
             <Route exact path="/list">
-              <AppBar />
-              <DroppableList />
+              <Template>
+                <DroppableList />
+              </Template>
             </Route>
             <Route exact path="/board">
-              <AppBar />
-              <DroppableBoard board={tempData} />
+              <Template>
+                <DroppableBoard board={tempData} />
+              </Template>
             </Route>
           </Switch>
         </BrowserRouter>

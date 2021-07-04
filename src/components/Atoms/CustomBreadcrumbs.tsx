@@ -1,11 +1,10 @@
 import { Breadcrumbs } from '@material-ui/core';
 import React from 'react';
-import { CustomChip } from '../Atoms/CustomChip';
 
-export interface BarMenuProps {
+export interface CustomBreadcrumbsProps {
   children: React.ReactNode;
 }
 
-export const BarMenu = ({ children }: BarMenuProps) => {
+export const CustomBreadcrumbs = ({ children }: CustomBreadcrumbsProps) => {
   return <Breadcrumbs aria-label="breadcrumb">{children}</Breadcrumbs>;
 };

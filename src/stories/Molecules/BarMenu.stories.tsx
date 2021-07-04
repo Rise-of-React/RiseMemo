@@ -1,18 +1,18 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { BarMenu, BarMenuProps } from '../../components/Molecules/BarMenu';
+import { CustomBreadcrumbs, CustomBreadcrumbsProps } from '../../components/Atoms/CustomBreadcrumbs';
 import HomeIcon from '@material-ui/icons/Home';
 import ViewListIcon from '@material-ui/icons/ViewList';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import { CustomChip } from '../../components/Atoms/CustomChip';
 
 export default {
-  title: 'Molecules/BarMenu',
-  component: BarMenu,
+  title: 'Molecules/CustomBreadcrumbs',
+  component: CustomBreadcrumbs,
   decorators: [(Story) => <Story />],
 } as Meta;
 
-const Template: Story<BarMenuProps> = (args) => <BarMenu {...args} />;
+const Template: Story<CustomBreadcrumbsProps> = (args) => <CustomBreadcrumbs {...args} />;
 
 export const Default = Template.bind({});
 
