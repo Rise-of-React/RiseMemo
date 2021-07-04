@@ -1,19 +1,12 @@
-import { Grid, IconButton, makeStyles } from '@material-ui/core';
-import React from 'react';
-import MenuIcon from '@material-ui/icons/Menu';
+import { makeStyles } from '@material-ui/core';
 import HomeIcon from '@material-ui/icons/Home';
 import ViewListIcon from '@material-ui/icons/ViewList';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import { CustomDrawer } from '../CustomDrawer';
 import { CustomBreadcrumbs } from '../Atoms/CustomBreadcrumbs';
 import { CustomChip } from '../Atoms/CustomChip';
 import { Link } from 'react-router-dom';
 
 const useStyle = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    direction: 'ltr',
-  },
   icon: {
     color: theme.palette.text.primary,
   },

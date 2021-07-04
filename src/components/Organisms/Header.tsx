@@ -1,6 +1,6 @@
-import { Grid, IconButton } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import React from 'react';
-import MenuIcon from '@material-ui/icons/Menu';
+import { DrawerMenu } from '../Atoms/DrawerMenu';
 import { CustomDrawer } from '../CustomDrawer';
 import { Menu } from '../Molecules/Menu';
 
@@ -21,9 +21,7 @@ export const Header = () => {
           <Menu />
         </Grid>
         <Grid item>
-          <IconButton onClick={() => setOpen(true)} size="medium">
-            <MenuIcon />
-          </IconButton>
+          <DrawerMenu onClick={() => setOpen(true)} />
         </Grid>
       </Grid>
 

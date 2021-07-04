@@ -6,12 +6,7 @@ import {
   Drawer,
   Grid,
   IconButton,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
   makeStyles,
-  Paper,
   Typography,
 } from '@material-ui/core';
 import React from 'react';
@@ -46,7 +41,7 @@ export const CustomDrawer = (props: CustomDrawerProps) => {
 
   React.useEffect(() => {
     setUserState(user ?? {});
-  }, []);
+  }, [user]);
 
   return (
     <Drawer anchor={'right'} open={isOpen}>
