@@ -4,7 +4,7 @@ import { CalanderPlate } from '../Molecules/CalanderPlate';
 
 export const Calander = () => {
   return (
-    <Grid>
+    <Grid container style={{ width: 1293 }}>
       <CalanderDateList />
       <CalanderPlate />
     </Grid>

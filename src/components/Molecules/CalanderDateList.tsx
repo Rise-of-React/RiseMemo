@@ -30,9 +30,9 @@ const useStyle = makeStyles((theme) => ({
 export const CalanderDateList = (props: CalanderDateListProps) => {
   const classes = useStyle(props);
   return (
-    <Grid container direction="row" justify="center">
+    <Grid container direction="row">
       {Object.values(dateList).map((date) => (
-        <Grid item className={classes.dateTitle}>
+        <Grid item className={classes.dateTitle} container alignItems="center" justify="center">
           <Typography>{date}</Typography>
         </Grid>
       ))}
@@ -41,6 +41,6 @@ export const CalanderDateList = (props: CalanderDateListProps) => {
 };
 
 CalanderDateList.defaultProps = {
-  width: 150,
+  width: 184,
   height: 35,
 };

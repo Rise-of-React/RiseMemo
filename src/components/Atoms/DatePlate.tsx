@@ -40,6 +40,6 @@ export const DatePlate = (props: DatePlateProps) => {
 
 DatePlate.defaultProps = {
   date: new Date(),
-  width: 150,
-  height: 150,
+  width: 182,
+  height: 114,
 };
