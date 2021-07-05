@@ -7,23 +7,25 @@ Maintenance your project with memo. Based with React Typescript and Material UI
 First, run the development server:
 
 ```bash
+npm install
 npm run dev
 # or
+yarn add
 yarn dev
 ```
 
-## Library
+> Library
 
--React MaterialUI
--React DnD
--immutability-helper - for update state easily
+- React Material-UI
+- React Beautiful Drag & Drop
+- immutability-helper(for update state easily)
+- React-router-dom
 
+> Design
 
-## Design
+[Figma Link] :
+[Design Link](https://www.figma.com/file/UseUiYSjf0aLjAQJIpoOhw/RiseOfMemo?node-id=0%3A)
 
-https://www.figma.com/file/UseUiYSjf0aLjAQJIpoOhw/RiseOfMemo?node-id=0%3A1
+> Learned
 
-
-### Learned
-
-- cssBasedLine 어떤 브라우저를 돌아가느냐에 상관없이 일괄적인 스타일을 적용되려면, CSS를 전역에서 정규화(normalize)시켜주는 것
+- cssBasedLine : 어떤 브라우저를 돌아가느냐에 상관없이 일괄적인 스타일을 적용되려면, CSS를 전역에서 정규화(normalize)시켜줌
