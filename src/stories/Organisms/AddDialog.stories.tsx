@@ -1,11 +1,11 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { CustomCardProps, CustomCard } from '../components/CustomCard';
+import { CustomCardProps, CustomCard } from '../../components/CustomCard';
 import { Paper } from '@material-ui/core';
-import { AddDialog, AddDialogProps } from '../components/AddDialog';
+import { AddDialog, AddDialogProps } from '../../components/AddDialog';
 
 export default {
-  title: 'Dialog/AddDialog',
+  title: 'Organisms/AddDialog',
   component: AddDialog,
   decorators: [(Story) => <Story />],
 } as Meta;

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Paper } from '@material-ui/core';
-import { CustomBoardProps, CustomBoard } from '../components/CustomBoard';
-import { CustomCard } from '../components/CustomCard';
+import { CustomBoardProps, CustomBoard } from '../../components/CustomBoard';
+import { CustomCard } from '../../components/CustomCard';
 
 export default {
-  title: 'Board/Board',
+  title: 'Organisms/Board',
   component: CustomBoard,
   decorators: [
     (Story) => (

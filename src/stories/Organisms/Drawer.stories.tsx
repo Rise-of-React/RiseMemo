@@ -1,9 +1,9 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { CustomDrawer, CustomDrawerProps } from '../components/CustomDrawer';
+import { CustomDrawer, CustomDrawerProps } from '../../components/CustomDrawer';
 
 export default {
-  title: 'Drawer/Drawer',
+  title: 'Organisms/Drawer',
   component: CustomDrawer,
   decorators: [(Story) => <Story />],
 } as Meta;

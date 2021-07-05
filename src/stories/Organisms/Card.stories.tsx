@@ -1,10 +1,10 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { CustomCardProps, CustomCard } from '../components/CustomCard';
+import { CustomCardProps, CustomCard } from '../../components/CustomCard';
 import { Paper } from '@material-ui/core';
 
 export default {
-  title: 'Card/Card',
+  title: 'Organisms/Card',
   component: CustomCard,
   decorators: [
     (Story) => (
