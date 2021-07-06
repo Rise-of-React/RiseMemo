@@ -12,6 +12,7 @@ const useStyle = makeStyles((theme) => ({
     fontStyle: 'normal',
     fontWeight: 'normal',
     paddingBottom: 15,
+    color: theme.palette.primary.main,
   },
 }));
 

@@ -5,10 +5,16 @@ import { CalenderPlate } from '../Molecules/CalenderPlate';
 
 export const Calender = () => {
   return (
-    <Grid container style={{ width: 1293 }}>
-      <CalenderMonth month={7} year={2021} />
-      <CalenderDateList />
-      <CalenderPlate month={7} year={2021} />
+    <Grid container direction="column" justify="center" alignContent="center">
+      <Grid item>
+        <CalenderMonth month={7} year={2021} />
+      </Grid>
+      <Grid item>
+        <CalenderDateList />
+      </Grid>
+      <Grid item>
+        <CalenderPlate month={7} year={2021} />
+      </Grid>
     </Grid>
   );
 };

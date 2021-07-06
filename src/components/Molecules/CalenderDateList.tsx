@@ -14,7 +14,7 @@ const useStyle = makeStyles((theme) => ({
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontWeight: 'normal',
-    color: theme.palette.grey[500],
+    color: theme.palette.primary.dark,
   }),
 }));
 
@@ -32,6 +32,6 @@ export const CalenderDateList = (props: CalenderDateListProps) => {
 };
 
 CalenderDateList.defaultProps = {
-  width: 184,
+  width: 182,
   height: 35,
 };
