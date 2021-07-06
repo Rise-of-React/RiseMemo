@@ -4,6 +4,11 @@ export interface DatePlateProps {
   date: Date;
   width: number;
   height: number;
+  isBeforeMonth?: boolean;
+  isAfterMonth?: boolean;
+  dateName?: string;
+  firstDay?: Date;
+  lastDay?: Date;
 }
 
 const useStyle = makeStyles((theme) => ({

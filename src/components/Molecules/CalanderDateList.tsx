@@ -1,20 +1,11 @@
 import { Grid, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
+import { dateList } from '../../utils/date';
 
 export interface CalanderDateListProps {
   width: number;
   height: number;
 }
-
-const dateList = {
-  Sunday: 'Sun',
-  Monday: 'Mon',
-  Tuesday: 'Tue',
-  Wednesday: 'Wed',
-  Thursday: 'Thu',
-  Friday: 'Fri',
-  Saturday: 'Sat',
-};
 
 const useStyle = makeStyles((theme) => ({
   dateTitle: (props: CalanderDateListProps) => ({
