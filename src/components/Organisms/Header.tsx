@@ -15,16 +15,10 @@ export const Header = () => {
 
   return (
     <React.Fragment>
-      <Grid container direction="row" justify="space-between">
-        <Grid item></Grid>
-        <Grid item>
-          <Menu />
-        </Grid>
-        <Grid item>
-          <DrawerMenu onClick={() => setOpen(true)} />
-        </Grid>
+      <Grid container justify="center">
+        <Menu />
       </Grid>
-
+      <DrawerMenu onClick={() => setOpen(true)} />
       <CustomDrawer isOpen={open} onClose={onClose} />
     </React.Fragment>
   );

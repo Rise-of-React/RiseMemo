@@ -1,3 +1,5 @@
+import { Calender } from '../types/calender/calender';
+
 const PLATE_ROW = 7;
 const PLATE_COLUMNS = 6;
 
@@ -105,7 +107,7 @@ export function getCurrentMonthList(month: number, year: number) {
  * @return {Date | undefined[][]} List with date objects for Calender Date
  */
 export function getCalenderDateList(month: number, year: number) {
-  const dateList: (Date | undefined)[][] = Array.from(Array(PLATE_COLUMNS), () => Array(PLATE_ROW).fill(null));
+  const dateList: (Calender | undefined)[][] = Array.from(Array(PLATE_COLUMNS), () => Array(PLATE_ROW).fill(null));
 
   const firstDay = getFirstDay(month - 1, year);
   const lastDay = getLastDay(month - 1, year);
@@ -117,11 +119,10 @@ export function getCalenderDateList(month: number, year: number) {
   for (let i = 0; i < PLATE_COLUMNS; ++i) {
     for (let j = 0; j < PLATE_ROW; ++j) {
       if (before.length) {
-        dateList[i][j] = before.pop();
+        dateList[i][j] = { date: before.pop(), isCurrent: false };
       } else if (!current.length) {
-        dateList[i][j] = after.shift();
-        console.log(dateList[i][j]);
-      } else dateList[i][j] = current.shift();
+        dateList[i][j] = { date: after.shift(), isCurrent: false };
+      } else dateList[i][j] = { date: current.shift(), isCurrent: true };
     }
   }
 

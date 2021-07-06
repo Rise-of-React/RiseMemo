@@ -5,7 +5,7 @@ import { CalenderPlate } from '../Molecules/CalenderPlate';
 
 export const Calender = () => {
   return (
-    <Grid container direction="column" justify="center" alignContent="center">
+    <Grid container direction="column" alignContent="center">
       <Grid item>
         <CalenderMonth month={7} year={2021} />
       </Grid>

@@ -9,6 +9,7 @@ export interface DatePlateProps {
   dateName?: string;
   firstDay?: Date;
   lastDay?: Date;
+  isCurrent?: boolean;
 }
 
 const useStyle = makeStyles((theme) => ({
@@ -31,12 +32,12 @@ const useStyle = makeStyles((theme) => ({
   plate: {
     padding: 15,
   },
-  font: {
+  font: (props: DatePlateProps) => ({
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontWeight: 'normal',
-    color: theme.palette.grey[500],
-  },
+    color: props.isCurrent ? theme.palette.grey[500] : theme.palette.grey[500],
+  }),
 }));
 
 export const DatePlate = (props: DatePlateProps) => {

@@ -1,5 +1,6 @@
 import { Grid } from '@material-ui/core';
 import React from 'react';
+import { Calender } from '../../types/calender/calender';
 import { dateList, getCalenderDateList } from '../../utils/date';
 import { DatePlate } from '../Atoms/DatePlate';
 
@@ -9,7 +10,7 @@ export interface CalenderPlateProps {
 }
 
 export const CalenderPlate = (props: CalenderPlateProps) => {
-  const [CalenderDateList, setCalenderDateList] = React.useState<(Date | undefined)[][]>(
+  const [CalenderDateList, setCalenderDateList] = React.useState<(Calender | undefined)[][]>(
     getCalenderDateList(props.month, props.year)
   );
 
@@ -19,11 +20,18 @@ export const CalenderPlate = (props: CalenderPlateProps) => {
         {CalenderDateList.map((rowDateList) => {
           return (
             <Grid item xs={12} container direction="row">
-              {rowDateList.map((date, rowIndex) => {
+              {rowDateList.map((dData, rowIndex) => {
                 return (
-                  <Grid item>
-                    <DatePlate key={date ? date.getTime() : rowIndex} dateName={dateList[rowIndex]} date={date} />
-                  </Grid>
+                  dData && (
+                    <Grid item>
+                      <DatePlate
+                        key={dData.date ? dData.date.getTime() : rowIndex}
+                        dateName={dateList[rowIndex]}
+                        date={dData.date}
+                        isCurrent={dData.isCurrent}
+                      />
+                    </Grid>
+                  )
                 );
               })}
             </Grid>
