@@ -2,13 +2,13 @@ import { Grid, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
 import { dateList } from '../../utils/date';
 
-export interface CalanderDateListProps {
+export interface CalenderDateListProps {
   width: number;
   height: number;
 }
 
 const useStyle = makeStyles((theme) => ({
-  dateTitle: (props: CalanderDateListProps) => ({
+  dateTitle: (props: CalenderDateListProps) => ({
     width: props.width,
     height: props.height,
     fontFamily: 'Poppins',
@@ -18,7 +18,7 @@ const useStyle = makeStyles((theme) => ({
   }),
 }));
 
-export const CalanderDateList = (props: CalanderDateListProps) => {
+export const CalenderDateList = (props: CalenderDateListProps) => {
   const classes = useStyle(props);
   return (
     <Grid container direction="row">
@@ -31,7 +31,7 @@ export const CalanderDateList = (props: CalanderDateListProps) => {
   );
 };
 
-CalanderDateList.defaultProps = {
+CalenderDateList.defaultProps = {
   width: 184,
   height: 35,
 };

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { Calander } from '../../components/Organisms/Calander';
+import { Calender } from '../../components/Organisms/Calender';
 
 export default {
-  title: 'Organisms/Calander',
-  component: Calander,
+  title: 'Organisms/Calender',
+  component: Calender,
   decorators: [(Story) => <Story />],
 } as Meta;
 
-const Template: Story = () => <Calander />;
+const Template: Story = () => <Calender />;
 
 export const Default = Template.bind({});

@@ -61,7 +61,7 @@ export function getNameOfDate(date: Date) {
 
 /**
  * @param Date The Date class
- * @return {Date[]} Date List before yours current Month in Calander
+ * @return {Date[]} Date List before yours current Month in Calender
  */
 export function getBeforeMonthList(date: Date) {
   const length = date.getDay();
@@ -74,7 +74,7 @@ export function getBeforeMonthList(date: Date) {
 
 /**
  * @param Date Date class
- * @return {Date[]} Date List after yours current Month in Calander
+ * @return {Date[]} Date List after yours current Month in Calender
  */
 export function getAfterMonthList(date: Date) {
   const list = [];
@@ -102,9 +102,9 @@ export function getCurrentMonthList(month: number, year: number) {
 /**
  * @param number month number, 0 based
  * @param number year, not zero based, required to account for leap years
- * @return {Date | undefined[][]} List with date objects for Calander Date
+ * @return {Date | undefined[][]} List with date objects for Calender Date
  */
-export function getCalanderDateList(month: number, year: number) {
+export function getCalenderDateList(month: number, year: number) {
   const dateList: (Date | undefined)[][] = Array.from(Array(PLATE_COLUMNS), () => Array(PLATE_ROW).fill(null));
 
   const firstDay = getFirstDay(month - 1, year);

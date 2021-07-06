@@ -1,7 +1,7 @@
 import { Grid, makeStyles, Typography } from '@material-ui/core';
 import { getCurrentMonthByDate } from '../../utils/date';
 
-export interface CalanderMonthProps {
+export interface CalenderMonthProps {
   month: number;
   year: number;
 }
@@ -15,7 +15,7 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
-export const CalanderMonth = (props: CalanderMonthProps) => {
+export const CalenderMonth = (props: CalenderMonthProps) => {
   const classes = useStyle(props);
 
   return (

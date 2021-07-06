@@ -1,22 +1,22 @@
 import { Grid } from '@material-ui/core';
 import React from 'react';
-import { dateList, getCalanderDateList } from '../../utils/date';
+import { dateList, getCalenderDateList } from '../../utils/date';
 import { DatePlate } from '../Atoms/DatePlate';
 
-export interface CalanderPlateProps {
+export interface CalenderPlateProps {
   month: number;
   year: number;
 }
 
-export const CalanderPlate = (props: CalanderPlateProps) => {
-  const [calanderDateList, setCalanderDateList] = React.useState<(Date | undefined)[][]>(
-    getCalanderDateList(props.month, props.year)
+export const CalenderPlate = (props: CalenderPlateProps) => {
+  const [CalenderDateList, setCalenderDateList] = React.useState<(Date | undefined)[][]>(
+    getCalenderDateList(props.month, props.year)
   );
 
   return (
     <React.Fragment>
       <Grid container direction="column">
-        {calanderDateList.map((rowDateList) => {
+        {CalenderDateList.map((rowDateList) => {
           return (
             <Grid item xs={12} container direction="row">
               {rowDateList.map((date, rowIndex) => {

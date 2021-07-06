@@ -22,8 +22,8 @@ export const Menu = (props: MenuProps) => {
       <Link to={'/'} style={{ textDecoration: 'none' }}>
         <CustomChip label={'Home'} icon={<HomeIcon className={classes.icon} />} onClick={() => {}} />
       </Link>
-      <Link to={'/list'} style={{ textDecoration: 'none' }}>
-        <CustomChip label={'List'} icon={<ViewListIcon className={classes.icon} />} onClick={() => {}} />
+      <Link to={'/Calender'} style={{ textDecoration: 'none' }}>
+        <CustomChip label={'Calender'} icon={<ViewListIcon className={classes.icon} />} onClick={() => {}} />
       </Link>
       <Link to={'/board'} style={{ textDecoration: 'none' }}>
         <CustomChip label={'Board'} icon={<DashboardIcon className={classes.icon} />} onClick={() => {}} />
