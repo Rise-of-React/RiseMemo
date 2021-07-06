@@ -25,6 +25,7 @@ const useStyle = makeStyles((theme) => ({
       borderWidth: 1,
       borderColor: theme.palette.primary.main,
       borderStyle: 'solid',
+      color: theme.palette.text.primary,
     },
   }),
   plate: {

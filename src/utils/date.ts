@@ -3,6 +3,31 @@ const PLATE_COLUMNS = 6;
 
 export const dateList = ['Sun', 'Mon', 'Thu', 'Wed', 'Thu', 'Fri', 'Sat'];
 
+export const monthList = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
+
+/**
+ * @param number The month number, 0 based
+ * @param number The year, not zero based, required to account for leap years
+ * @return {string} month name
+ */
+export function getCurrentMonthByDate(month: number, year: number) {
+  const date = new Date(year, month, 1);
+  return monthList[date.getMonth() - 1];
+}
+
 /**
  * @param number The month number, 0 based
  * @param number The year, not zero based, required to account for leap years
@@ -74,6 +99,11 @@ export function getCurrentMonthList(month: number, year: number) {
   return days;
 }
 
+/**
+ * @param number month number, 0 based
+ * @param number year, not zero based, required to account for leap years
+ * @return {Date | undefined[][]} List with date objects for Calander Date
+ */
 export function getCalanderDateList(month: number, year: number) {
   const dateList: (Date | undefined)[][] = Array.from(Array(PLATE_COLUMNS), () => Array(PLATE_ROW).fill(null));
 
