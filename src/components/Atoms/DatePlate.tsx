@@ -35,8 +35,8 @@ const useStyle = makeStyles((theme) => ({
   font: (props: DatePlateProps) => ({
     fontFamily: 'Poppins',
     fontStyle: 'normal',
-    fontWeight: 'normal',
-    color: props.isCurrent ? theme.palette.grey[500] : theme.palette.grey[500],
+    fontWeight: props.isCurrent ? 'bold' : 'normal',
+    color: props.isCurrent ? theme.palette.text.secondary : theme.palette.grey[500],
   }),
 }));
 

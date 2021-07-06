@@ -13,7 +13,8 @@ import AddOutlinedIcon from '@material-ui/icons/AddOutlined';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
 import React from 'react';
 import { MemoData } from '../types/memo/memo';
-
+import { CustomButton } from './Atoms/CustomButton';
+import { CustomTextField } from './Atoms/CustomTextField';
 
 const useStyles = makeStyles((theme) => ({
   dialog: {
@@ -59,13 +60,6 @@ export const AddDialog = (props: AddDialogProps) => {
   const { open, onClose, subTitle, onAddMemo } = props;
   const [addState, setAddState] = React.useState<MemoData>({ title: '', subTitle: '' });
 
-  // React.useEffect(()=>{
-  //   setAddState(origin ?? {
-  //     title: '',
-  //     subTitle: '',
-  //   });
-  // },[origin])
-
   const onChangeValue = React.useCallback(
     (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
       const value = event.target.value;
@@ -100,58 +94,20 @@ export const AddDialog = (props: AddDialogProps) => {
                 <Typography variant="subtitle2" style={{ color: '#ffffff' }}>
                   title
                 </Typography>
-                <TextField
-                  id="title"
-                  variant="outlined"
-                  value={addState?.title}
-                  fullWidth
-                  className={classes.textField}
-                  onChange={(e) => {
-                    onChangeValue(e);
-                  }}
-                  InputProps={{
-                    className: classes.input,
-                  }}
-                />
+                <CustomTextField id="title" value={addState.title} onChange={onChangeValue} isFullWidth />
               </Grid>
               <Grid item style={{ paddingBottom: '15vh' }}>
                 <Typography variant="subtitle2" style={{ color: '#ffffff' }}>
                   Subtitle
                 </Typography>
-                <TextField
-                  id="subTitle"
-                  variant="outlined"
-                  value={addState?.subTitle}
-                  fullWidth
-                  className={classes.textField}
-                  onChange={(e) => {
-                    onChangeValue(e);
-                  }}
-                  InputProps={{
-                    className: classes.input,
-                  }}
-                />
+                <CustomTextField id="subTitle" value={addState.subTitle} onChange={onChangeValue} isFullWidth />
               </Grid>
               <Grid item container direction="row" justify="space-between">
                 <Grid item>
-                  <Button
-                    variant="contained"
-                    startIcon={<AddOutlinedIcon />}
-                    style={{ backgroundColor: '#ffffff', color: '#9B51E0' }}
-                    type="submit"
-                  >
-                    Add
-                  </Button>
+                  <CustomButton isSubmit icon={<AddOutlinedIcon />} label="Add" />
                 </Grid>
                 <Grid item>
-                  <Button
-                    variant="contained"
-                    startIcon={<CloseOutlinedIcon />}
-                    style={{ backgroundColor: '#ffffff', color: '#9B51E0' }}
-                    onClick={onClose}
-                  >
-                    Close
-                  </Button>
+                  <CustomButton onClick={onClose} icon={<CloseOutlinedIcon />} label="Close" />
                 </Grid>
               </Grid>
             </Grid>

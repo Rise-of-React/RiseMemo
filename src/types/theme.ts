@@ -11,6 +11,7 @@ export const defaultTheme = createMuiTheme({
     },
     text: {
       primary: '#ffffff',
+      secondary: '#6a1b9a',
     },
   },
 });
