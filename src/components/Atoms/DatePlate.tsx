@@ -19,6 +19,13 @@ const useStyle = makeStyles((theme) => ({
     borderWidth: 1,
     borderColor: theme.palette.grey[300],
     borderStyle: 'solid',
+    '&:hover': {
+      backgroundColor: theme.palette.primary.light,
+      cursor: 'pointer',
+      borderWidth: 1,
+      borderColor: theme.palette.primary.main,
+      borderStyle: 'solid',
+    },
   }),
   plate: {
     padding: 15,
@@ -35,7 +42,12 @@ export const DatePlate = (props: DatePlateProps) => {
   const classes = useStyle(props);
 
   return (
-    <Box className={classes.datePlate}>
+    <Box
+      className={classes.datePlate}
+      onClick={() => {
+        console.log(props.dateName);
+      }}
+    >
       <Grid container className={classes.plate}>
         <Typography className={classes.font}>{props.date.getDate()}</Typography>
       </Grid>
