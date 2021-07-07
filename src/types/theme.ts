@@ -3,6 +3,7 @@ export const defaultTheme = createMuiTheme({
   palette: {
     background: {
       default: '#ede7f6',
+      paper: '#ffffff',
     },
     primary: {
       main: '#A55BCE',
@@ -12,6 +13,7 @@ export const defaultTheme = createMuiTheme({
     text: {
       primary: '#ffffff',
       secondary: '#6a1b9a',
+      hint: '#A024DA',
     },
   },
 });

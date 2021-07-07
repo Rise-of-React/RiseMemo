@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { Paper } from '@material-ui/core';
+import { Grid, Paper } from '@material-ui/core';
 import { CustomBoardProps, CustomBoard } from '../../components/CustomBoard';
 import { CustomCard } from '../../components/CustomCard';
 
@@ -38,5 +38,9 @@ Default.args = {
     backgroundColor: '#E1C3F0',
   },
   cardStyle: { width: '392', height: '112', backgroundColor: '#CE97E8' },
-  children: <CustomCard title={cardProps.title} subTitle={cardProps.subTitle} style={cardProps.style} />,
+  children: (
+    <Grid container justify="center" style={{ paddingTop: 15, paddingBottom: 15 }}>
+      <CustomCard title={cardProps.title} subTitle={cardProps.subTitle} style={cardProps.style} />
+    </Grid>
+  ),
 };

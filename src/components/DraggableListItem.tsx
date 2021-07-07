@@ -1,4 +1,4 @@
-import { ListItem } from '@material-ui/core';
+import { ListItem, Grid } from '@material-ui/core';
 import React, { FC } from 'react';
 import { DraggableProvided, DraggableStateSnapshot } from 'react-beautiful-dnd';
 import { CardStyleProps } from '../types/card/card';
@@ -22,7 +22,9 @@ export const DraggableListItem: FC<DraggableListItemProps> = ({ item, cardStyle,
         ...provided.draggableProps.style,
       }}
     >
-      <CustomCard title={item.title} subTitle={item.subTitle} style={cardStyle} />
+      <Grid container justify="center">
+        <CustomCard title={item.title} subTitle={item.subTitle} style={cardStyle} />
+      </Grid>
     </ListItem>
   );
 };

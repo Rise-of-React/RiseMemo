@@ -17,6 +17,9 @@ yarn dev
 > Development Process
 
 - Atomic Design System with Storybook
+- State Management -> Redux? Recoil? Mobx?
+- Test Driven Development -> Jest Library
+- Event Driven Architecture
 
 > Library
 
@@ -27,8 +30,7 @@ yarn dev
 
 > Design
 
-[Figma Link] :
-[Design Link](https://www.figma.com/file/UseUiYSjf0aLjAQJIpoOhw/RiseOfMemo?node-id=0%3A)
+- [Design Figma Link](https://www.figma.com/file/UseUiYSjf0aLjAQJIpoOhw/RiseOfMemo?node-id=0%3A)
 
 > Learned
 
