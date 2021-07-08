@@ -20,6 +20,8 @@ yarn dev
 - State Management -> Redux? Recoil? Mobx?
 - Test Driven Development -> Jest Library
 - Event Driven Architecture
+- Start Workflow with Github Project Kanban & Sprint Style
+- Make Github issue with Enhancement & Error and To Fix
 
 > Library
 

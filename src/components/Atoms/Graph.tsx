@@ -1,5 +1,7 @@
 import { Grid } from '@material-ui/core';
 
+//https://www.w3.org/TR/SVG/paths.html#PathDataCubicBezierCommands
+
 export interface GraphProps {
   data: GraphData[];
   width: number;
@@ -62,9 +64,28 @@ export const Graph = (props: GraphProps) => {
     .map((element) => {
       const x = (element.x / maximumXFromData) * chartWidth + padding;
       const y = chartHeight - (element.y / maximumYFromData) * chartHeight + padding;
+
       return `${x},${y}`;
     })
     .join(' ');
+
+  const lines = data
+    .map((element, index) => {
+      const x = Math.floor((element.x / maximumXFromData) * chartWidth) + padding;
+      const beforeX = data[index - 1] ? Math.floor((data[index - 1].x / maximumXFromData) * chartWidth) + padding : 0;
+      const y = chartHeight - Math.floor((element.y / maximumYFromData) * chartHeight) + padding;
+
+      if (index === 0) {
+        return `M${x},${y}`;
+      } else if (index !== 0 && index % 2 === 0) {
+        return `T${x},${y}`;
+      } else {
+        return `Q${(x - beforeX) / 2 + beforeX},${y}, ${x},${y}`;
+      }
+    })
+    .join(' ');
+
+  console.log(lines);
 
   const HorizontalGuides = () => {
     const startX = padding;
@@ -148,6 +169,28 @@ export const Graph = (props: GraphProps) => {
         <HorizontalGuides />
 
         <polyline fill="none" stroke="#0074d9" strokeWidth={1} points={points} />
+        <path fill="none" stroke="#7000d9" strokeWidth={1} d={lines} />
+      </svg>
+
+      <svg width="12cm" height="6cm" viewBox="0 0 1200 600">
+        <path d="M200,300 Q400,50 600,300 T1000,300" fill="none" stroke="red" stroke-width="5" />
+
+        <g fill="black">
+          <circle cx="200" cy="300" r="10" />
+          <circle cx="600" cy="300" r="10" />
+          <circle cx="1000" cy="300" r="10" />
+        </g>
+        <g fill="#888888">
+          <circle cx="400" cy="50" r="10" />
+          <circle cx="800" cy="550" r="10" />
+        </g>
+        <path
+          d="M200,300 L400,50 L600,300
+           L800,550 L1000,300"
+          fill="none"
+          stroke="#888888"
+          stroke-width="2"
+        />
       </svg>
     </Grid>
   );
