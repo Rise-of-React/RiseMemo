@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import React from 'react';
 import { Header } from '../Organisms/Header';
 
 export const Template: React.FC = (props) => {
