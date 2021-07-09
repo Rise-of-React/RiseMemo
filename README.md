@@ -29,6 +29,7 @@ yarn dev
 - React Beautiful Drag & Drop
 - immutability-helper(for update state easily)
 - React-router-dom
+- Dateformat for date formatting
 
 > Design
 

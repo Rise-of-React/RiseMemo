@@ -1,13 +1,13 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { Graph, GraphData, GraphProps } from '../../components/Atoms/CanvasGraph';
+import { CanvasGraph, GraphData, CanvasGraphProps } from '../../components/Atoms/CanvasGraph';
 
 export default {
-  title: 'Atoms/Graph',
-  component: Graph,
+  title: 'Atoms/CanvasGraph',
+  component: CanvasGraph,
   decorators: [(Story) => <Story />],
 } as Meta;
 
-const Template: Story<GraphProps> = (args) => <Graph {...args} />;
+const Template: Story<CanvasGraphProps> = (args) => <CanvasGraph {...args} />;
 
 export const Default = Template.bind({});

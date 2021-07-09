@@ -1,9 +1,9 @@
-import { Grid } from '@material-ui/core';
+import { Card, Grid } from '@material-ui/core';
 import React from 'react';
 
 //https://www.w3.org/TR/SVG/paths.html#PathDataCubicBezierCommands
 
-export interface GraphProps {
+export interface CanvasGraphProps {
   data: GraphData[];
   width: number;
   height: number;
@@ -37,7 +37,7 @@ const defaultData: GraphData[] = [
   { label: 'F', x: 11, y: 2 },
 ];
 
-export const Graph = (props: GraphProps) => {
+export const CanvasGraph = (props: CanvasGraphProps) => {
   const {
     data,
     height,
@@ -78,6 +78,7 @@ export const Graph = (props: GraphProps) => {
         {data.map((element) => {
           const x = (element.x / maximumX) * chartWidth + padding - FONT_SIZE / 2;
           ctx.font = `${FONT_SIZE}px Helvetica`;
+          ctx.fillStyle = '#d050f7';
           ctx.fillText(`${element.label}`, x, y);
           return;
         })}
@@ -97,6 +98,7 @@ export const Graph = (props: GraphProps) => {
           const yCoordinate = chartHeight - chartHeight * ratio + padding + FONT_SIZE / 2;
 
           ctx.font = `${FONT_SIZE}px Helvetica`;
+          ctx.fillStyle = '#d050f7';
           ctx.fillText(`${parseFloat(String(maximumY * (index / PARTS))).toFixed(precision)}`, x, yCoordinate);
           return;
         })}
@@ -105,10 +107,28 @@ export const Graph = (props: GraphProps) => {
   };
   const drawAxis = (ctx: CanvasRenderingContext2D, points: number[]) => {
     ctx.beginPath();
-    ctx.strokeStyle = '#b9b9b9';
+    ctx.strokeStyle = '#ccc';
     ctx.moveTo(points[0], points[1]);
     ctx.lineTo(points[2], points[3]);
     ctx.stroke();
+  };
+
+  const drawHorizontalGuides = (ctx: CanvasRenderingContext2D) => {
+    const startX = padding;
+    const endX = width - padding;
+
+    new Array(numberOfHorizontalGuides).fill(0).map((_, index) => {
+      const ratio = (index + 1) / numberOfHorizontalGuides;
+      const yCoordinate = chartHeight - chartHeight * ratio + padding;
+      const points = `${startX},${yCoordinate} ${endX},${yCoordinate}`;
+
+      ctx.beginPath();
+      ctx.strokeStyle = '#ccc';
+      ctx.moveTo(startX, yCoordinate);
+      ctx.lineTo(endX, yCoordinate);
+      ctx.lineWidth = 0.5;
+      ctx.stroke();
+    });
   };
 
   function drawXAxis(ctx: CanvasRenderingContext2D) {
@@ -126,6 +146,7 @@ export const Graph = (props: GraphProps) => {
   function drawLines(ctx: CanvasRenderingContext2D, pts: number[]) {
     for (let i = 2; i < pts.length - 1; i += 2) {
       ctx.lineTo(pts[i], pts[i + 1]);
+      ctx.lineWidth = 2;
     }
   }
 
@@ -234,10 +255,11 @@ export const Graph = (props: GraphProps) => {
       canvas = canvasRef.current;
       ctx = canvas.getContext('2d');
       if (ctx) {
-        drawYAxis(ctx);
+        // drawYAxis(ctx);
         drawXAxis(ctx);
         drawLabelsXAxis(ctx);
         drawLabelsYAxis(ctx);
+        drawHorizontalGuides(ctx);
         drawCurve(ctx, points, tension, isClosed, numOfSegments, showPoints);
       }
     } else {
@@ -245,14 +267,10 @@ export const Graph = (props: GraphProps) => {
     }
   }, []);
 
-  return (
-    <Grid>
-      <canvas ref={canvasRef} width={width} height={height}></canvas>
-    </Grid>
-  );
+  return <canvas ref={canvasRef} width={width} height={height} />;
 };
 
-Graph.defaultProps = {
+CanvasGraph.defaultProps = {
   data: defaultData,
   height: 500,
   width: 1500,

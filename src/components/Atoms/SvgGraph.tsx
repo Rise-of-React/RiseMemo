@@ -2,7 +2,7 @@ import { Grid } from '@material-ui/core';
 
 //https://www.w3.org/TR/SVG/paths.html#PathDataCubicBezierCommands
 
-export interface GraphProps {
+export interface SvgGraphProps {
   data: GraphData[];
   width: number;
   height: number;
@@ -34,7 +34,7 @@ const defaultData: GraphData[] = [
   { label: 'S', x: 12, y: 1 },
 ];
 
-export const Graph = (props: GraphProps) => {
+export const SvgGraph = (props: SvgGraphProps) => {
   const {
     data,
     height,
@@ -126,8 +126,6 @@ export const Graph = (props: GraphProps) => {
       }
     })
     .join(' ');
-
-  console.log(lines);
 
   const HorizontalGuides = () => {
     const startX = padding;
@@ -239,7 +237,7 @@ export const Graph = (props: GraphProps) => {
   );
 };
 
-Graph.defaultProps = {
+SvgGraph.defaultProps = {
   data: defaultData,
   height: 200,
   width: 500,
