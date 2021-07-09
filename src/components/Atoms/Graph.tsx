@@ -9,6 +9,7 @@ export interface GraphProps {
   horizontalGuides: number;
   verticalGuides: number;
   precision: number;
+  pointRoundSize: number;
 }
 
 export type GraphData = {
@@ -25,6 +26,12 @@ const defaultData: GraphData[] = [
   { label: 'TH', x: 4, y: 4 },
   { label: 'F', x: 5, y: 5 },
   { label: 'S', x: 6, y: 4 },
+  { label: 'W', x: 7, y: 1 },
+  { label: 'TH', x: 8, y: 4 },
+  { label: 'F', x: 9, y: 5 },
+  { label: 'S', x: 10, y: 2 },
+  { label: 'F', x: 11, y: 2 },
+  { label: 'S', x: 12, y: 1 },
 ];
 
 export const Graph = (props: GraphProps) => {
@@ -35,6 +42,7 @@ export const Graph = (props: GraphProps) => {
     horizontalGuides: numberOfHorizontalGuides,
     verticalGuides: numberOfVerticalGuides,
     precision,
+    pointRoundSize,
   } = props;
   const FONT_SIZE = width / 50;
   const maximumXFromData = Math.max(...data.map((e) => e.x));
@@ -69,15 +77,49 @@ export const Graph = (props: GraphProps) => {
     })
     .join(' ');
 
+  const Points = () => {
+    return (
+      <g fill="#e871f8">
+        {data.map((element) => {
+          const x = (element.x / maximumXFromData) * chartWidth + padding;
+          const y = chartHeight - (element.y / maximumYFromData) * chartHeight + padding;
+
+          return <circle cx={x} cy={y} r={pointRoundSize} />;
+        })}
+      </g>
+    );
+  };
+
+  const CurvedPoints = () => {
+    return (
+      <g fill="#ad0808">
+        {data.map((element, index) => {
+          const x = Math.floor((element.x / maximumXFromData) * chartWidth) + padding;
+          const beforeX = data[index - 1]
+            ? Math.floor((data[index - 1].x / maximumXFromData) * chartWidth) + padding
+            : 0;
+          const y = chartHeight - Math.floor((element.y / maximumYFromData) * chartHeight) + padding;
+          const beforeY = data[index - 1]
+            ? chartHeight - Math.floor((data[index - 1].y / maximumYFromData) * chartHeight) + padding
+            : 0;
+          return <circle cx={(x - beforeX) / 2 + beforeX} cy={y} r={pointRoundSize} />;
+        })}
+      </g>
+    );
+  };
+
   const lines = data
     .map((element, index) => {
       const x = Math.floor((element.x / maximumXFromData) * chartWidth) + padding;
       const beforeX = data[index - 1] ? Math.floor((data[index - 1].x / maximumXFromData) * chartWidth) + padding : 0;
       const y = chartHeight - Math.floor((element.y / maximumYFromData) * chartHeight) + padding;
-
+      const beforeY = data[index - 1]
+        ? chartHeight - Math.floor((data[index - 1].y / maximumYFromData) * chartHeight) + padding
+        : 0;
+      //`Q${(x - beforeX) / 2 + beforeX},${beforeY}, ${x},${y}`;
       if (index === 0) {
         return `M${x},${y}`;
-      } else if (index !== 0 && index % 2 === 0) {
+      } else if (index === data.length - 1) {
         return `T${x},${y}`;
       } else {
         return `Q${(x - beforeX) / 2 + beforeX},${y}, ${x},${y}`;
@@ -167,8 +209,9 @@ export const Graph = (props: GraphProps) => {
         <LabelsYAxis />
         {numberOfVerticalGuides && <VerticalGuides />}
         <HorizontalGuides />
-
-        <polyline fill="none" stroke="#0074d9" strokeWidth={1} points={points} />
+        <Points />
+        {/* <CurvedPoints /> */}
+        {/* <polyline fill="none" stroke="#0074d9" strokeWidth={1} points={points} /> */}
         <path fill="none" stroke="#7000d9" strokeWidth={1} d={lines} />
       </svg>
 
@@ -203,4 +246,5 @@ Graph.defaultProps = {
   horizontalGuides: 4,
   verticalGuides: null,
   precision: 2,
+  pointRoundSize: 3,
 };

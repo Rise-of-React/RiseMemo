@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { Graph, GraphData, GraphProps } from '../../components/Atoms/Graph';
+import { Graph, GraphData, GraphProps } from '../../components/Atoms/CanvasGraph';
 
 export default {
   title: 'Atoms/Graph',
