@@ -272,8 +272,8 @@ export const CanvasGraph = (props: CanvasGraphProps) => {
 
 CanvasGraph.defaultProps = {
   data: defaultData,
-  height: 500,
-  width: 1500,
+  height: 450,
+  width: 1300,
   horizontalGuides: 4,
   verticalGuides: null,
   precision: 2,

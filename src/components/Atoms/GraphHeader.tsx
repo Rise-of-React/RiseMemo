@@ -54,7 +54,7 @@ export const GraphHeader = (props: GraphHeaderProps) => {
         <Grid item style={{ marginRight: 10 }}>
           <ColoredLine color="#d050f7" />
         </Grid>
-        <Grid item style={{ marginRight: 10 }}>
+        <Grid item style={{ marginRight: 50 }}>
           <Typography className={classes.labelOne} variant="caption">
             Today
           </Typography>

@@ -1,10 +1,12 @@
-import { CssBaseline, Grid, makeStyles, MuiThemeProvider } from '@material-ui/core';
+import { Grid, makeStyles } from '@material-ui/core';
 import React from 'react';
 import { DroppableBoard } from './components/DroppableBoard';
 import { tempData } from './types/board/board';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Template } from './components/Template/Template';
 import { Calender } from './components/Organisms/Calender';
+import { GraphWidget } from './components/Molecules/GraphWidget';
+import { HomeCardList } from './components/Organisms/HomeCardList';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,7 +22,10 @@ export default function App() {
         <Switch>
           <Route exact path="/">
             <Template>
-              <DroppableBoard board={tempData} />
+              <Grid container direction="column" alignItems="center">
+                <GraphWidget />
+                <HomeCardList />
+              </Grid>
             </Template>
           </Route>
           <Route exact path="/Calender">

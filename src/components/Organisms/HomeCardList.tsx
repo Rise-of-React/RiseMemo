@@ -16,7 +16,7 @@ export const HomeCardList = (props: HomeCardListProps) => {
   const classes = useStyle();
   const { values } = props;
   return (
-    <Grid container>
+    <Grid container justify="center">
       {Object.entries(values ? values : defaultHomeCardObject).map((value) => {
         return (
           <Grid item key={value[0]} className={classes.homeCard}>
