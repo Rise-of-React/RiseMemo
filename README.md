@@ -43,3 +43,6 @@ yarn dev
       - Bar Chart는 React tag로 가능.
       - Line Chart는 polyline tag / Curved Line Chart는 Path tag with Q/T/S etc
       - Canvas가 SVG보다 더 괜찮은 이유? 수많은 데이터를 처리할 때 SVG는 DOM Node를 만들어가면서 생성하기때문에 효율이 좋지않고 DOM관련 함수들이 느리기때문에 성능 문제도 있다. 하지만 SVG에서 상호작용해야하는 그러한 기능이 추가되면 쉽게 처리할수 있는 장점도 있는듯함.
+- Event Type for React
+      - MouseEvent / SVGElement / HTMLElement
+      - React에서의 Icon내의 onClick을 통한 handle type 처리에서 onClick type 처리.
