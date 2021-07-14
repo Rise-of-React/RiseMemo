@@ -15,10 +15,22 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     StepArea: {
       width: 819,
-      backgroundColor: theme.palette.primary.light,
+      backgroundColor: theme.palette.primary.main,
     },
-    vertical: {
-      height: 50,
+    stepIcon: {
+      color: theme.palette.primary.dark,
+      '& .MuiStepIcon-completed': {
+        color: theme.palette.primary.dark,
+      },
+      '& $active': {
+        color: theme.palette.primary.dark,
+      },
+    },
+    active: {}, //needed so that the &$active tag works
+    completed: {},
+    disabled: {},
+    stepIconText: {
+      color: theme.palette.text.primary,
     },
   })
 );
@@ -51,15 +63,31 @@ export const CalenderStepper = (props: CalenderStepperProps) => {
   return (
     <Stepper activeStep={activeStep} orientation="vertical" className={classes.StepArea}>
       {steps.map((label, index) => (
-        <Step key={label}>
-          <StepLabel>{label}</StepLabel>
+        <Step
+          key={label}
+          classes={{
+            root: classes.stepIcon,
+          }}
+        >
+          <StepLabel
+            StepIconProps={{
+              classes: {
+                root: classes.stepIcon,
+                text: classes.stepIconText,
+                completed: classes.completed,
+                active: classes.active,
+              },
+            }}
+          >
+            {label}
+          </StepLabel>
           <StepContent>{getStepContent(index)}</StepContent>
         </Step>
       ))}
       <Grid container>
         <Grid item xs={6} style={{ padding: 15 }}>
           <CustomButton
-            label={'Back'}
+            label={activeStep === 0 ? 'Cancel' : 'Back'}
             isIcon={false}
             onClick={() => {
               if (activeStep === 0) {
