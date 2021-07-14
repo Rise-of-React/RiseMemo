@@ -1,6 +1,8 @@
 import { Grid, makeStyles, Paper, Typography } from '@material-ui/core';
 import React from 'react';
+import { getFormattedDate } from '../../utils/date';
 import { CustomModal } from '../Atoms/CustomModal';
+import { CalenderBoxList } from './CalenderBoxList';
 
 export interface CalenderModalProps {
   date: Date;
@@ -17,6 +19,8 @@ const useStyle = makeStyles((theme) => ({
   }),
 }));
 
+const lists = [{ date: new Date(), isCurrent: true, title: 'test' }];
+
 export const CalenderModal = (props: CalenderModalProps) => {
   const classes = useStyle(props);
   const { date, open, onClose } = props;
@@ -26,9 +30,11 @@ export const CalenderModal = (props: CalenderModalProps) => {
       <Paper className={classes.modal}>
         <Grid container direction="column">
           <Grid item>
-            <Typography variant="h4">{date.toDateString()}</Typography>
+            <Typography variant="h4">{getFormattedDate(date)}</Typography>
           </Grid>
-          <Grid item></Grid>
+          <Grid item container justify="center">
+            <CalenderBoxList lists={lists} />
+          </Grid>
           <Grid item></Grid>
         </Grid>
       </Paper>
