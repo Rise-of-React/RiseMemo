@@ -1,4 +1,6 @@
 import { Box, Grid, makeStyles, Typography } from '@material-ui/core';
+import React from 'react';
+import { CalenderModal } from '../Molecules/CalenderModal';
 
 export interface DatePlateProps {
   date: Date;
@@ -42,18 +44,26 @@ const useStyle = makeStyles((theme) => ({
 
 export const DatePlate = (props: DatePlateProps) => {
   const classes = useStyle(props);
+  const [open, setOpen] = React.useState<boolean>(false);
+  const handleClose = React.useCallback(() => {
+    setOpen(false);
+  }, [setOpen]);
 
   return (
-    <Box
-      className={classes.datePlate}
-      onClick={() => {
-        console.log(props.dateName);
-      }}
-    >
-      <Grid container className={classes.plate}>
-        <Typography className={classes.font}>{props.date.getDate()}</Typography>
-      </Grid>
-    </Box>
+    <div>
+      <Box
+        className={classes.datePlate}
+        onClick={() => {
+          setOpen(true);
+        }}
+      >
+        <Grid container className={classes.plate}>
+          <Typography className={classes.font}>{props.date.getDate()}</Typography>
+        </Grid>
+      </Box>
+
+      <CalenderModal open={open} onClose={handleClose} />
+    </div>
   );
 };
 
