@@ -1,12 +1,12 @@
 import { Grid, makeStyles } from '@material-ui/core';
 import React from 'react';
-import { DroppableBoard } from './components/DroppableBoard';
 import { tempData } from './types/board/board';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Template } from './components/Template/Template';
 import { Calender } from './components/Organisms/Calender';
 import { GraphWidget } from './components/Molecules/GraphWidget';
 import { HomeCardList } from './components/Organisms/HomeCardList';
+import { DroppableBoard } from './components/Organisms/DroppableBoard';
 
 const useStyles = makeStyles((theme) => ({
   root: {

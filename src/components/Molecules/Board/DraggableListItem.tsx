@@ -1,8 +1,8 @@
 import { ListItem, Grid } from '@material-ui/core';
 import React, { FC } from 'react';
 import { DraggableProvided, DraggableStateSnapshot } from 'react-beautiful-dnd';
-import { CardStyleProps } from '../types/card/card';
-import { MemoData } from '../types/memo/memo';
+import { CardStyleProps } from '../../../types/card/card';
+import { MemoData } from '../../../types/memo/memo';
 import { CustomCard } from './CustomCard';
 
 export interface DraggableListItemProps {

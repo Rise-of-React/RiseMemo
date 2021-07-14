@@ -1,8 +1,8 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Grid, Paper } from '@material-ui/core';
-import { CustomBoardProps, CustomBoard } from '../../components/CustomBoard';
-import { CustomCard } from '../../components/CustomCard';
+import { CustomBoardProps, CustomBoard } from '../../components/Molecules/Board/CustomBoard';
+import { CustomCard } from '../../components/Molecules/Board/CustomCard';
 
 export default {
   title: 'Organisms/Board',

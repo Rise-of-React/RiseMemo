@@ -1,11 +1,11 @@
 import { Grid } from '@material-ui/core';
 import React, { FC } from 'react';
 import { DragDropContext, DragUpdate, Droppable, DropResult, ResponderProvided } from 'react-beautiful-dnd';
-import { Board } from '../types/board/board';
-import { MemoData } from '../types/memo/memo';
-import { CustomBoard } from './CustomBoard';
-import { DraggableList } from './DraggableList';
+import { CustomBoard } from '../Molecules/Board/CustomBoard';
+import { DraggableList } from '../Molecules/Board/DraggableList';
 import { v4 as uuidv4 } from 'uuid';
+import { Board } from '../../types/board/board';
+import { MemoData } from '../../types/memo/memo';
 interface DroppableBoardProps {
   board: Board;
 }

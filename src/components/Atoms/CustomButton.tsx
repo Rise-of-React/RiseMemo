@@ -7,8 +7,8 @@ export interface CustomButtonProps {
   isIcon?: boolean;
   label?: string;
   onClick?: () => void;
-  width?: number;
-  height?: number;
+  width?: number | string;
+  height?: number | string;
 }
 
 const useStyle = makeStyles((theme) => ({

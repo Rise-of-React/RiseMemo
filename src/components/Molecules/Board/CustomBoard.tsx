@@ -1,10 +1,10 @@
 import { Fab, Grid, makeStyles, Paper, Theme, Typography } from '@material-ui/core';
 import React from 'react';
-import { BoardStyleProps } from '../types/board/board';
-import { CardStyleProps } from '../types/card/card';
+import { BoardStyleProps } from '../../../types/board/board';
+import { CardStyleProps } from '../../../types/card/card';
 import AddOutlinedIcon from '@material-ui/icons/AddOutlined';
-import { AddDialog } from './AddDialog';
-import { MemoData } from '../types/memo/memo';
+import { AddDialog } from '../../Organisms/AddDialog';
+import { MemoData } from '../../../types/memo/memo';
 export interface CustomBoardProps {
   title?: string;
   boardStyle?: BoardStyleProps;

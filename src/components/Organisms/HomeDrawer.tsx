@@ -10,9 +10,9 @@ import {
   Typography,
 } from '@material-ui/core';
 import React from 'react';
-import { User } from '../types/user/user';
+import { User } from '../../types/user/user';
 import CancelOutlinedIcon from '@material-ui/icons/CancelOutlined';
-export interface CustomDrawerProps {
+export interface HomeDrawerProps {
   user?: User;
   isOpen: boolean;
   onClose?: () => void;
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const CustomDrawer = (props: CustomDrawerProps) => {
+export const HomeDrawer = (props: HomeDrawerProps) => {
   const { user, isOpen, onClose } = props;
   const classes = useStyles();
   const [userState, setUserState] = React.useState<User>();

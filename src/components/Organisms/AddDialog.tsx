@@ -12,9 +12,9 @@ import {
 import AddOutlinedIcon from '@material-ui/icons/AddOutlined';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
 import React from 'react';
-import { MemoData } from '../types/memo/memo';
-import { CustomButton } from './Atoms/CustomButton';
-import { CustomTextField } from './Atoms/CustomTextField';
+import { MemoData } from '../../types/memo/memo';
+import { CustomButton } from '../Atoms/CustomButton';
+import { CustomTextField } from '../Atoms/CustomTextField';
 
 const useStyles = makeStyles((theme) => ({
   dialog: {

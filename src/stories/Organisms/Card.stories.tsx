@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { CustomCardProps, CustomCard } from '../../components/CustomCard';
 import { Paper } from '@material-ui/core';
+import { CustomCard, CustomCardProps } from '../../components/Molecules/Board/CustomCard';
 
 export default {
   title: 'Organisms/Card',

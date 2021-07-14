@@ -1,9 +1,9 @@
 import { List } from '@material-ui/core';
 import React, { FC } from 'react';
 import { Draggable, DroppableProvided, DroppableStateSnapshot } from 'react-beautiful-dnd';
-import { BoardStyleProps } from '../types/board/board';
-import { CardStyleProps } from '../types/card/card';
-import { MemoData } from '../types/memo/memo';
+import { BoardStyleProps } from '../../../types/board/board';
+import { CardStyleProps } from '../../../types/card/card';
+import { MemoData } from '../../../types/memo/memo';
 import { DraggableListItem } from './DraggableListItem';
 
 interface DraggableListProps {
