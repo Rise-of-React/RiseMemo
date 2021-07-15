@@ -1,10 +1,12 @@
-import { makeStyles, TextField } from '@material-ui/core';
+import { makeStyles, TextField, Typography } from '@material-ui/core';
 
 export interface CustomTextFieldProps {
   value?: string | number;
   id?: string;
+  title?: string;
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => void;
   isFullWidth?: boolean;
+  isDate?: boolean;
 }
 
 const useStyle = makeStyles((theme) => ({
@@ -12,18 +14,21 @@ const useStyle = makeStyles((theme) => ({
     borderRadius: 4,
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: '#ffffff',
+        borderColor: theme.palette.text.primary,
       },
       '&:hover fieldset': {
-        borderColor: '#ffffff',
+        borderColor: theme.palette.text.primary,
       },
       '&.Mui-focused fieldset': {
-        borderColor: '#ffffff',
+        borderColor: theme.palette.text.primary,
       },
     },
   },
   input: {
-    color: '#ffffff',
+    color: theme.palette.text.primary,
+  },
+  title: {
+    color: theme.palette.text.primary,
   },
 }));
 
@@ -31,16 +36,22 @@ export const CustomTextField = (props: CustomTextFieldProps) => {
   const classes = useStyle(props);
 
   return (
-    <TextField
-      id={props.id}
-      className={classes.textField}
-      variant="outlined"
-      fullWidth={props.isFullWidth ? true : false}
-      onChange={props.onChange}
-      InputProps={{
-        className: classes.input,
-      }}
-    />
+    <div>
+      <Typography variant="subtitle2" className={classes.title}>
+        {props.title}
+      </Typography>
+      <TextField
+        id={props.id}
+        className={classes.textField}
+        type={props.isDate ? 'date' : 'text'}
+        variant="outlined"
+        fullWidth={props.isFullWidth ? true : false}
+        onChange={props.onChange}
+        InputProps={{
+          className: classes.input,
+        }}
+      />
+    </div>
   );
 };
 
@@ -48,4 +59,6 @@ CustomTextField.defaultProps = {
   id: 'textField',
   onChange: () => {},
   value: 'value',
+  title: 'your title',
+  isDate: false,
 };

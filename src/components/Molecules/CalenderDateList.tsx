@@ -22,8 +22,8 @@ export const CalenderDateList = (props: CalenderDateListProps) => {
   const classes = useStyle(props);
   return (
     <Grid container direction="row">
-      {Object.values(dateList).map((date) => (
-        <Grid item className={classes.dateTitle} container alignItems="center" justify="center">
+      {Object.values(dateList).map((date, index) => (
+        <Grid key={index} item className={classes.dateTitle} container alignItems="center" justify="center">
           <Typography>{date}</Typography>
         </Grid>
       ))}

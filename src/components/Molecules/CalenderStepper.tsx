@@ -1,4 +1,14 @@
-import { createStyles, Grid, makeStyles, Step, StepContent, StepLabel, Stepper, Theme } from '@material-ui/core';
+import {
+  createStyles,
+  Grid,
+  makeStyles,
+  Step,
+  StepButton,
+  StepContent,
+  StepLabel,
+  Stepper,
+  Theme,
+} from '@material-ui/core';
 import React from 'react';
 import { StepOne } from '../Atoms/CalenderDrawer/StepOne';
 import { StepThree } from '../Atoms/CalenderDrawer/StepThree';
@@ -17,18 +27,18 @@ const useStyles = makeStyles((theme: Theme) =>
       width: 819,
       backgroundColor: theme.palette.primary.main,
     },
-    stepIcon: {
+    step: {
       color: theme.palette.primary.dark,
       '& .MuiStepIcon-completed': {
         color: theme.palette.primary.dark,
       },
-      '& $active': {
+      '& .MuiStepIcon-active': {
         color: theme.palette.primary.dark,
       },
     },
-    active: {}, //needed so that the &$active tag works
-    completed: {},
-    disabled: {},
+    stepIcon: {
+      color: theme.palette.primary.dark,
+    },
     stepIconText: {
       color: theme.palette.text.primary,
     },
@@ -63,24 +73,14 @@ export const CalenderStepper = (props: CalenderStepperProps) => {
   return (
     <Stepper activeStep={activeStep} orientation="vertical" className={classes.StepArea}>
       {steps.map((label, index) => (
-        <Step
-          key={label}
-          classes={{
-            root: classes.stepIcon,
-          }}
-        >
-          <StepLabel
-            StepIconProps={{
-              classes: {
-                root: classes.stepIcon,
-                text: classes.stepIconText,
-                completed: classes.completed,
-                active: classes.active,
-              },
+        <Step key={label}>
+          <StepButton
+            classes={{
+              root: classes.step,
             }}
           >
-            {label}
-          </StepLabel>
+            <StepLabel>{label}</StepLabel>
+          </StepButton>
           <StepContent>{getStepContent(index)}</StepContent>
         </Step>
       ))}

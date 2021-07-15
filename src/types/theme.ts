@@ -1,4 +1,7 @@
 import { createMuiTheme } from '@material-ui/core/styles';
+import { Overrides } from '@material-ui/core/styles/overrides';
+import { MuiPickersOverrides } from '@material-ui/pickers/typings/overrides';
+
 export const defaultTheme = createMuiTheme({
   palette: {
     background: {
@@ -16,4 +19,27 @@ export const defaultTheme = createMuiTheme({
       hint: '#A024DA',
     },
   },
+  overrides: {
+    MuiPickersCalendarHeader: {
+      switchHeader: {
+        color: '#A024DA',
+      },
+    },
+    MuiPickersDay: {
+      day: {
+        color: '#A024DA',
+      },
+      dayDisabled: {
+        color: '#A024DA',
+      },
+    },
+  },
 });
+
+type overridesNameToClassKey = {
+  [P in keyof MuiPickersOverrides]: keyof MuiPickersOverrides[P];
+};
+
+declare module '@material-ui/core/styles/overrides' {
+  export interface ComponentNameToClassKey extends overridesNameToClassKey {}
+}

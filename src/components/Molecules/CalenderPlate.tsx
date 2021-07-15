@@ -17,19 +17,14 @@ export const CalenderPlate = (props: CalenderPlateProps) => {
   return (
     <React.Fragment>
       <Grid container direction="column">
-        {CalenderDateList.map((rowDateList) => {
+        {CalenderDateList.map((rowDateList, columnIndex) => {
           return (
-            <Grid item xs={12} container direction="row">
+            <Grid key={columnIndex} item xs={12} container direction="row">
               {rowDateList.map((dData, rowIndex) => {
                 return (
                   dData && (
-                    <Grid item>
-                      <DatePlate
-                        key={dData.date ? dData.date.getTime() : rowIndex}
-                        dateName={dateList[rowIndex]}
-                        date={dData.date}
-                        isCurrent={dData.isCurrent}
-                      />
+                    <Grid item key={rowIndex}>
+                      <DatePlate dateName={dateList[rowIndex]} date={dData.date} isCurrent={dData.isCurrent} />
                     </Grid>
                   )
                 );

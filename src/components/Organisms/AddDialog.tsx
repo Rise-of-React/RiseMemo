@@ -91,16 +91,16 @@ export const AddDialog = (props: AddDialogProps) => {
           <DialogContent>
             <Grid container direction={'column'} className={classes.content} justify="flex-end">
               <Grid item>
-                <Typography variant="subtitle2" style={{ color: '#ffffff' }}>
-                  title
-                </Typography>
-                <CustomTextField id="title" value={addState.title} onChange={onChangeValue} isFullWidth />
+                <CustomTextField title="title" id="title" value={addState.title} onChange={onChangeValue} isFullWidth />
               </Grid>
               <Grid item style={{ paddingBottom: '15vh' }}>
-                <Typography variant="subtitle2" style={{ color: '#ffffff' }}>
-                  Subtitle
-                </Typography>
-                <CustomTextField id="subTitle" value={addState.subTitle} onChange={onChangeValue} isFullWidth />
+                <CustomTextField
+                  title="subTitle"
+                  id="subTitle"
+                  value={addState.subTitle}
+                  onChange={onChangeValue}
+                  isFullWidth
+                />
               </Grid>
               <Grid item container direction="row" justify="space-between">
                 <Grid item>

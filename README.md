@@ -25,11 +25,11 @@ yarn dev
 
 > Library
 
-- React Material-UI
+- React Material-UI / Pickers
 - React Beautiful Drag & Drop
 - immutability-helper(for update state easily)
 - React-router-dom
-- Dateformat for date formatting
+- Dateformat for date formatting / @date-io/date-fns
 
 > Design
 
@@ -46,3 +46,10 @@ yarn dev
 - Event Type for React
       - MouseEvent / SVGElement / HTMLElement
       - React에서의 Icon내의 onClick을 통한 handle type 처리에서 onClick type 처리.
+
+> 참고 내용
+
+- <https://stackoverflow.com/questions/46989454/class-vs-classname-in-react-16/46991278>
+- <https://www.educba.com/svg-vs-canvas>
+- <https://stackoverflow.com/questions/57058299/what-does-the-cssbaseline-class-do>
+- <https://velog.io/@mementomori/React-%EC%83%81%ED%83%9C-%EA%B4%80%EB%A6%AC-Tool-%EC%82%AC%EC%9A%A9-%EB%B9%84%EA%B5%90-Redux-VS-MobX-VS-Context-API>
