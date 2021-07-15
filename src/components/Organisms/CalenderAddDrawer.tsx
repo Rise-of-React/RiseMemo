@@ -8,7 +8,10 @@ export interface CalenderAddDrawerProps {
 
 const useStyles = makeStyles((theme) => ({
   paperAnchorBottom: {
-    left: '33%',
+    margin: 'auto',
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
     width: 867,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
@@ -27,7 +30,7 @@ export const CalenderAddDrawer = (props: CalenderAddDrawerProps) => {
           <Typography variant="h4">Create</Typography>
         </Grid>
         <Grid item>
-          <CalenderStepper />
+          <CalenderStepper onClose={onClose} />
         </Grid>
       </Grid>
     </Drawer>

@@ -5,6 +5,7 @@ import { CustomButton } from '../Atoms/CustomButton';
 import { CustomModal } from '../Atoms/CustomModal';
 import { CalenderBoxList } from './CalenderBoxList';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import { CalenderAddDrawer } from '../Organisms/CalenderAddDrawer';
 
 export interface CalenderModalProps {
   date: Date;
@@ -27,26 +28,42 @@ const lists = [{ date: new Date(), isCurrent: true, title: 'test' }];
 export const CalenderModal = (props: CalenderModalProps) => {
   const classes = useStyle(props);
   const { date, open, onClose } = props;
+  const [drawerOpen, setDrawerOpen] = React.useState<boolean>(false);
+
+  const handleClose = React.useCallback(() => {
+    setDrawerOpen(false);
+  }, [setDrawerOpen]);
 
   return (
-    <CustomModal open={open} onClose={onClose}>
-      <Paper className={classes.modal}>
-        <Grid container direction="column">
-          <Grid item>
-            <Typography variant="h4">{getFormattedDate(date)}</Typography>
+    <div>
+      <CustomModal open={open} onClose={onClose}>
+        <Paper className={classes.modal}>
+          <Grid container direction="column">
+            <Grid item>
+              <Typography variant="h4">{getFormattedDate(date)}</Typography>
+            </Grid>
+            <Grid item container justify="center" style={{ paddingBottom: 30 }}>
+              <CalenderBoxList lists={lists} />
+            </Grid>
+            <Grid item container justify="center" style={{ paddingBottom: 30 }}>
+              <CustomButton
+                label="New Event"
+                isIcon={false}
+                width={344}
+                height={56}
+                onClick={() => {
+                  setDrawerOpen(true);
+                }}
+              />
+            </Grid>
+            <Grid item container justify="center">
+              <CustomButton label="Back" icon={<ArrowBackIcon />} width={344} height={56} onClick={onClose} />
+            </Grid>
           </Grid>
-          <Grid item container justify="center" style={{ paddingBottom: 30 }}>
-            <CalenderBoxList lists={lists} />
-          </Grid>
-          <Grid item container justify="center" style={{ paddingBottom: 30 }}>
-            <CustomButton label="New Event" isIcon={false} width={344} height={56} />
-          </Grid>
-          <Grid item container justify="center">
-            <CustomButton label="Back" icon={<ArrowBackIcon />} width={344} height={56} onClick={onClose} />
-          </Grid>
-        </Grid>
-      </Paper>
-    </CustomModal>
+        </Paper>
+      </CustomModal>
+      <CalenderAddDrawer open={drawerOpen} onClose={handleClose} />
+    </div>
   );
 };
 
