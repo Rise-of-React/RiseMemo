@@ -85,15 +85,18 @@ export const AddDialog = (props: AddDialogProps) => {
       <Paper className={classes.dialog}>
         <form onSubmit={onSubmit}>
           <DialogTitle className={classes.title}>
-            <Typography variant="h5">Add Card</Typography>
-            <Typography variant="subtitle2">{subTitle}</Typography>
+            <div>
+              <Typography variant="h6">Add Card</Typography>
+            </div>
+
+            <Typography variant="body2">{subTitle}</Typography>
           </DialogTitle>
           <DialogContent>
-            <Grid container direction={'column'} className={classes.content} justify="flex-end">
-              <Grid item>
+            <Grid container className={classes.content}>
+              <Grid item style={{ width: '100%', paddingBottom: 30 }}>
                 <CustomTextField title="title" id="title" value={addState.title} onChange={onChangeValue} isFullWidth />
               </Grid>
-              <Grid item style={{ paddingBottom: '15vh' }}>
+              <Grid item style={{ width: '100%', paddingBottom: '12vh' }}>
                 <CustomTextField
                   title="subTitle"
                   id="subTitle"

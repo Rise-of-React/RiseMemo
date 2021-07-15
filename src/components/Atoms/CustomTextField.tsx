@@ -43,7 +43,6 @@ export const CustomTextField = (props: CustomTextFieldProps) => {
       <TextField
         id={props.id}
         className={classes.textField}
-        type={props.isDate ? 'date' : 'text'}
         variant="outlined"
         fullWidth={props.isFullWidth ? true : false}
         onChange={props.onChange}

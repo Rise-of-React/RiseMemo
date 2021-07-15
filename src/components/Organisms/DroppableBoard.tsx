@@ -29,6 +29,7 @@ export const DroppableBoard: FC<DroppableBoardProps> = (props) => {
 
   const onDragEnd = (result: DropResult, provided: ResponderProvided) => {
     const { source, destination } = result;
+    console.log(result);
     if (destination && source.droppableId !== destination.droppableId) {
       const sourceData = [...board[source.droppableId].data];
       const destinationData = [...board[destination.droppableId].data];

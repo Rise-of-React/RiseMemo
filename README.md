@@ -53,3 +53,4 @@ yarn dev
 - <https://www.educba.com/svg-vs-canvas>
 - <https://stackoverflow.com/questions/57058299/what-does-the-cssbaseline-class-do>
 - <https://velog.io/@mementomori/React-%EC%83%81%ED%83%9C-%EA%B4%80%EB%A6%AC-Tool-%EC%82%AC%EC%9A%A9-%EB%B9%84%EA%B5%90-Redux-VS-MobX-VS-Context-API>
+- <https://medium.com/@tsubasakondo_36683/4-ways-to-center-a-component-in-material-ui-a4bcafe6688e>
