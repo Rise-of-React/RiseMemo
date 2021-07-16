@@ -1,5 +1,4 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import { Overrides } from '@material-ui/core/styles/overrides';
 import { MuiPickersOverrides } from '@material-ui/pickers/typings/overrides';
 
 export const defaultTheme = createMuiTheme({

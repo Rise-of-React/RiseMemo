@@ -1,5 +1,5 @@
-import { Card, CardContent, CardHeader, Grid, IconButton, makeStyles, Theme, Typography } from '@material-ui/core';
 import React from 'react';
+import { Card, CardContent, Grid, IconButton, makeStyles, Theme, Typography } from '@material-ui/core';
 import CancelIcon from '@material-ui/icons/Cancel';
 import { CardStyleProps } from '../../../types/card/card';
 

@@ -18,7 +18,7 @@ export const DrawerMenu = ({ onClick }: DrawerMenuProps) => {
   const classes = useStyle();
   return (
     <IconButton className={classes.menu} onClick={onClick} size="medium">
-      <MenuIcon />
+      <MenuIcon fontSize={'large'} />
     </IconButton>
   );
 };

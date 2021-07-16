@@ -13,6 +13,7 @@ import { PopMenu } from '../Atoms/PopMenu';
 import React from 'react';
 export interface CalenderBoxListProps {
   lists: Calender[];
+  onDelete?: () => void;
 }
 
 const useStyle = makeStyles((theme) => ({
@@ -32,7 +33,7 @@ const useStyle = makeStyles((theme) => ({
 
 export const CalenderBoxList = (props: CalenderBoxListProps) => {
   const classes = useStyle(props);
-  const { lists } = props;
+  const { lists, onDelete } = props;
   const [anchorElement, setAnchorElement] = React.useState<null | Element>(null);
 
   const handleClick = React.useCallback(
@@ -61,7 +62,12 @@ export const CalenderBoxList = (props: CalenderBoxListProps) => {
                   </IconButton>
                 </ListItemSecondaryAction>
               </ListItem>
-              <PopMenu anchorEl={anchorElement} open={Boolean(anchorElement)} onClose={handleClose} />
+              <PopMenu
+                anchorEl={anchorElement}
+                open={Boolean(anchorElement)}
+                onClose={handleClose}
+                onOpenDelete={onDelete}
+              />
             </div>
           ))}
         </List>

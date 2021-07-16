@@ -1,4 +1,4 @@
-import { IconButton, makeStyles, Menu, MenuItem } from '@material-ui/core';
+import { makeStyles, Menu, MenuItem } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import React from 'react';
@@ -9,6 +9,7 @@ export interface PopMenuProps {
   isEdit?: boolean;
   isDelete?: boolean;
   onClose: () => void;
+  onOpenDelete?: () => void;
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -23,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 
 export const PopMenu = (props: PopMenuProps) => {
   const classes = useStyles();
-  const { open, anchorEl, isEdit, isDelete, onClose } = props;
+  const { open, anchorEl, isEdit, isDelete, onClose, onOpenDelete } = props;
 
   return (
     <Menu open={open} onClose={onClose} anchorEl={anchorEl}>
@@ -33,7 +34,7 @@ export const PopMenu = (props: PopMenuProps) => {
         </MenuItem>
       )}
       {isDelete && (
-        <MenuItem className={classes.menuItem}>
+        <MenuItem className={classes.menuItem} onClick={onOpenDelete}>
           <DeleteIcon className={classes.deleteIcon} />
         </MenuItem>
       )}
@@ -46,4 +47,5 @@ PopMenu.defaultProps = {
   isEdit: true,
   isDelete: true,
   onClose: () => {},
+  onOpenDelete: () => {},
 };

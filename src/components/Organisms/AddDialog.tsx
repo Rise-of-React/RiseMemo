@@ -1,14 +1,4 @@
-import {
-  Button,
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  Grid,
-  makeStyles,
-  Paper,
-  TextField,
-  Typography,
-} from '@material-ui/core';
+import { Dialog, DialogContent, DialogTitle, Grid, makeStyles, Paper, Typography } from '@material-ui/core';
 import AddOutlinedIcon from '@material-ui/icons/AddOutlined';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
 import React from 'react';
@@ -20,11 +10,11 @@ const useStyles = makeStyles((theme) => ({
   dialog: {
     width: 790,
     height: 511,
-    backgroundColor: '#A55BCE',
+    backgroundColor: theme.palette.primary.main,
     borderRadius: '15',
   },
   title: {
-    color: '#ffffff',
+    color: theme.palette.text.primary,
   },
   content: {
     height: 400,
@@ -33,18 +23,18 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 4,
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: '#ffffff',
+        borderColor: theme.palette.text.primary,
       },
       '&:hover fieldset': {
-        borderColor: '#ffffff',
+        borderColor: theme.palette.text.primary,
       },
       '&.Mui-focused fieldset': {
-        borderColor: '#ffffff',
+        borderColor: theme.palette.text.primary,
       },
     },
   },
   input: {
-    color: '#ffffff',
+    color: theme.palette.text.primary,
   },
 }));
 

@@ -38,7 +38,7 @@ export const CustomButton = (props: CustomButtonProps) => {
 
 CustomButton.defaultProps = {
   isSubmit: false,
-  isIcon: true,
+  isIcon: false,
   icon: <AddOutlinedIcon />,
   label: 'Button',
 };

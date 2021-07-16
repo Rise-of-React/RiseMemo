@@ -1,11 +1,11 @@
-import { Grid, makeStyles, Paper, Typography } from '@material-ui/core';
+import { Dialog, Grid, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
 import { getFormattedDate } from '../../utils/date';
 import { CustomButton } from '../Atoms/CustomButton';
-import { CustomModal } from '../Atoms/CustomModal';
 import { CalenderBoxList } from './CalenderBoxList';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { CalenderAddDrawer } from '../Organisms/CalenderAddDrawer';
+import { CalenderDeleteDialog } from '../Organisms/CalenderDeleteDialog';
 
 export interface CalenderModalProps {
   date: Date;
@@ -29,40 +29,48 @@ export const CalenderModal = (props: CalenderModalProps) => {
   const classes = useStyle(props);
   const { date, open, onClose } = props;
   const [drawerOpen, setDrawerOpen] = React.useState<boolean>(false);
-
-  const handleClose = React.useCallback(() => {
+  const [dialogOpen, setDialogOpen] = React.useState<boolean>(false);
+  const handleDrawerClose = React.useCallback(() => {
     setDrawerOpen(false);
+  }, [setDrawerOpen]);
+
+  const handleDialogClose = React.useCallback(() => {
+    setDialogOpen(false);
   }, [setDrawerOpen]);
 
   return (
     <div>
-      <CustomModal open={open} onClose={onClose}>
-        <Paper className={classes.modal}>
-          <Grid container direction="column">
-            <Grid item>
-              <Typography variant="h4">{getFormattedDate(date)}</Typography>
-            </Grid>
-            <Grid item container justify="center" style={{ paddingBottom: 30 }}>
-              <CalenderBoxList lists={lists} />
-            </Grid>
-            <Grid item container justify="center" style={{ paddingBottom: 30 }}>
-              <CustomButton
-                label="New Event"
-                isIcon={false}
-                width={344}
-                height={56}
-                onClick={() => {
-                  setDrawerOpen(true);
-                }}
-              />
-            </Grid>
-            <Grid item container justify="center">
-              <CustomButton label="Back" icon={<ArrowBackIcon />} width={344} height={56} onClick={onClose} />
-            </Grid>
+      <Dialog open={open} onClose={onClose} maxWidth={'lg'} PaperProps={{ classes: { root: classes.modal } }}>
+        <Grid container direction="column">
+          <Grid item>
+            <Typography variant="h4">{getFormattedDate(date)}</Typography>
           </Grid>
-        </Paper>
-      </CustomModal>
-      <CalenderAddDrawer open={drawerOpen} onClose={handleClose} />
+          <Grid item container justify="center" style={{ paddingBottom: 30 }}>
+            <CalenderBoxList
+              lists={lists}
+              onDelete={() => {
+                setDialogOpen(true);
+              }}
+            />
+          </Grid>
+          <Grid item container justify="center" style={{ paddingBottom: 30 }}>
+            <CustomButton
+              label="New Event"
+              isIcon={false}
+              width={344}
+              height={56}
+              onClick={() => {
+                setDrawerOpen(true);
+              }}
+            />
+          </Grid>
+          <Grid item container justify="center">
+            <CustomButton label="Back" icon={<ArrowBackIcon />} width={344} height={56} onClick={onClose} />
+          </Grid>
+        </Grid>
+      </Dialog>
+      <CalenderAddDrawer open={drawerOpen} onClose={handleDrawerClose} />
+      <CalenderDeleteDialog open={dialogOpen} onClose={handleDialogClose} />
     </div>
   );
 };

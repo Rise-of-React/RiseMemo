@@ -1,14 +1,14 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { CalenderDialog, CalenderDialogProps } from '../../components/Organisms/CalenderDialog';
+import { CalenderDeleteDialog, CalenderDeleteDialogProps } from '../../components/Organisms/CalenderDeleteDialog';
 
 export default {
-  title: 'Organisms/CalenderDialog',
-  component: CalenderDialog,
+  title: 'Organisms/CalenderDeleteDialog',
+  component: CalenderDeleteDialog,
   decorators: [(Story) => <Story />],
 } as Meta;
 
-const Template: Story<CalenderDialogProps> = (args) => <CalenderDialog {...args} />;
+const Template: Story<CalenderDeleteDialogProps> = (args) => <CalenderDeleteDialog {...args} />;
 
 export const Default = Template.bind({});
 

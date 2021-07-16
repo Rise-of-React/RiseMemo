@@ -10,9 +10,9 @@ import {
   Theme,
 } from '@material-ui/core';
 import React from 'react';
-import { StepOne } from '../Atoms/CalenderDrawer/StepOne';
-import { StepThree } from '../Atoms/CalenderDrawer/StepThree';
-import { StepTwo } from '../Atoms/CalenderDrawer/StepTwo';
+import { StepOne } from '../Atoms/Steps/StepOne';
+import { StepThree } from '../Atoms/Steps/StepThree';
+import { StepTwo } from '../Atoms/Steps/StepTwo';
 import { CustomButton } from '../Atoms/CustomButton';
 
 export interface CalenderStepperProps {
