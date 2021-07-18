@@ -19,20 +19,20 @@ const useStyles = makeStyles((theme) => ({
   content: {
     height: 400,
   },
-  textField: {
-    borderRadius: 4,
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: theme.palette.text.primary,
-      },
-      '&:hover fieldset': {
-        borderColor: theme.palette.text.primary,
-      },
-      '&.Mui-focused fieldset': {
-        borderColor: theme.palette.text.primary,
-      },
-    },
-  },
+  // textField: {
+  //   borderRadius: 4,
+  //   '& .MuiOutlinedInput-root': {
+  //     '& fieldset': {
+  //       borderColor: theme.palette.text.primary,
+  //     },
+  //     '&:hover fieldset': {
+  //       borderColor: theme.palette.text.primary,
+  //     },
+  //     '&.Mui-focused fieldset': {
+  //       borderColor: theme.palette.text.primary,
+  //     },
+  //   },
+  // },
   input: {
     color: theme.palette.text.primary,
   },
