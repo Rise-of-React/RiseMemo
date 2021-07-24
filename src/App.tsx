@@ -7,6 +7,7 @@ import { GraphWidget } from './components/Molecules/GraphWidget';
 import { HomeCardList } from './components/Organisms/HomeCardList';
 import { DroppableBoard } from './components/Organisms/DroppableBoard';
 import { Template } from './components/Template/Template';
+import { NotFoundPage } from './components/Pages/NotFoundPage';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,7 +29,7 @@ export default function App() {
               </Grid>
             </Template>
           </Route>
-          <Route exact path="/Calender">
+          <Route exact path="/calender">
             <Template>
               <Calender />
             </Template>
@@ -37,6 +38,9 @@ export default function App() {
             <Template>
               <DroppableBoard board={tempData} />
             </Template>
+          </Route>
+          <Route path="*">
+            <NotFoundPage></NotFoundPage>
           </Route>
         </Switch>
       </BrowserRouter>
