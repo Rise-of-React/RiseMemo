@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "https://rise-of-react.github.io/RiseMemo/static/css/main.4df5669b.chunk.css",
-    "main.js": "https://rise-of-react.github.io/RiseMemo/static/js/main.6f0c2a1f.chunk.js",
-    "main.js.map": "https://rise-of-react.github.io/RiseMemo/static/js/main.6f0c2a1f.chunk.js.map",
+    "main.js": "https://rise-of-react.github.io/RiseMemo/static/js/main.9eac9e3e.chunk.js",
+    "main.js.map": "https://rise-of-react.github.io/RiseMemo/static/js/main.9eac9e3e.chunk.js.map",
     "runtime-main.js": "https://rise-of-react.github.io/RiseMemo/static/js/runtime-main.73d5e0b2.js",
     "runtime-main.js.map": "https://rise-of-react.github.io/RiseMemo/static/js/runtime-main.73d5e0b2.js.map",
     "static/js/2.4731de28.chunk.js": "https://rise-of-react.github.io/RiseMemo/static/js/2.4731de28.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.73d5e0b2.js",
     "static/js/2.4731de28.chunk.js",
     "static/css/main.4df5669b.chunk.css",
-    "static/js/main.6f0c2a1f.chunk.js"
+    "static/js/main.9eac9e3e.chunk.js"
   ]
 }
