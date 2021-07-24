@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/RiseMemo/static/css/main.4df5669b.chunk.css",
-    "main.js": "/RiseMemo/static/js/main.ec2d496e.chunk.js",
-    "main.js.map": "/RiseMemo/static/js/main.ec2d496e.chunk.js.map",
+    "main.js": "/RiseMemo/static/js/main.f85a8674.chunk.js",
+    "main.js.map": "/RiseMemo/static/js/main.f85a8674.chunk.js.map",
     "runtime-main.js": "/RiseMemo/static/js/runtime-main.ce0b79a2.js",
     "runtime-main.js.map": "/RiseMemo/static/js/runtime-main.ce0b79a2.js.map",
     "static/js/2.b4f861e1.chunk.js": "/RiseMemo/static/js/2.b4f861e1.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.ce0b79a2.js",
     "static/js/2.b4f861e1.chunk.js",
     "static/css/main.4df5669b.chunk.css",
-    "static/js/main.ec2d496e.chunk.js"
+    "static/js/main.f85a8674.chunk.js"
   ]
 }
