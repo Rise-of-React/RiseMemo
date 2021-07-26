@@ -5,12 +5,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { CssBaseline, MuiThemeProvider } from '@material-ui/core';
 import { defaultTheme } from './types/theme';
+import { HashRouter } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
     <MuiThemeProvider theme={defaultTheme}>
       <CssBaseline />
-      <App />
+      <HashRouter
+      // basename={process.env.PUBLIC_URL}
+      >
+        <App />
+      </HashRouter>
     </MuiThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
